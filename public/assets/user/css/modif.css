@@ -1,0 +1,17 @@
+.logo_smk {
+  width: 35px;
+  height: 35px;
+}
+
+.logo_smk_res {
+  width: 45px;
+  height: 45px;
+}
+
+.logout_user {
+  background-color: #1a73e8;
+}
+
+.logout_user:hover {
+  background-color: #4d80c4;
+}
