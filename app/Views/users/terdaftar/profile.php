@@ -37,7 +37,7 @@
                         3. Nama Siswa
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['nama_siswa'] ?>
+                        <?= strtoupper($profile['nama_siswa']) ?>
                     </div>
                 </div>
                 <hr>
@@ -55,7 +55,7 @@
                         5. Jenis Kelamin
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['jenis_kelamin'] ?>
+                        <?= strtoupper($profile['jenis_kelamin']) ?>
                     </div>
                 </div>
                 <hr>
@@ -64,7 +64,7 @@
                         6. Tempat Lahir
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['tempat_lahir'] ?>
+                        <?= strtoupper($profile['tempat_lahir']) ?>
                     </div>
                 </div>
                 <hr>
@@ -82,7 +82,7 @@
                         8. Agama
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['agama'] ?>
+                        <?= strtoupper($profile['agama']) ?>
                     </div>
                 </div>
                 <hr>
@@ -91,7 +91,7 @@
                         9. Status Dalam Keluarga
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['status_dlm_kel'] ?>
+                        <?= strtoupper($profile['status_dlm_kel']) ?>
                     </div>
                 </div>
                 <hr>
@@ -100,7 +100,7 @@
                         10. Alamat Tempat Tinggal
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['alamat'] ?>
+                        <?= strtoupper($profile['alamat']) ?>
                     </div>
                 </div>
                 <hr>
@@ -127,7 +127,7 @@
                         13. Kelurahan
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['kelurahan'] ?>
+                        <?= strtoupper($profile['kelurahan']) ?>
                     </div>
                 </div>
                 <hr>
@@ -136,7 +136,7 @@
                         14. Kecamatan
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['kecamatan'] ?>
+                        <?= strtoupper($profile['kecamatan']) ?>
                     </div>
                 </div>
                 <hr>
@@ -145,7 +145,7 @@
                         15. Kabupaten/Kota
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['kab_kota'] ?>
+                        <?= strtoupper($profile['kab_kota']) ?>
                     </div>
                 </div>
                 <hr>
@@ -154,7 +154,7 @@
                         16. Provinsi
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['provinsi'] ?>
+                        <?= strtoupper($profile['provinsi']) ?>
                     </div>
                 </div>
                 <hr>
@@ -172,7 +172,7 @@
                         18. Nama Ayah
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['nama_ayah'] ?>
+                        <?= strtoupper($profile['nama_ayah']) ?>
                     </div>
                 </div>
                 <hr>
@@ -190,7 +190,7 @@
                         20. Nama Ibu
                     </div>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['nama_ibu'] ?>
+                        <?= strtoupper($profile['nama_ibu']) ?>
                     </div>
                 </div>
                 <hr>

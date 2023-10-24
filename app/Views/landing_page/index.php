@@ -77,91 +77,12 @@
 <div class="container py-4">
     <div class="row posts-entry">
         <div class="col-lg-12">
-            <div class="d-flex justify-content-center align-items-center w-100">
-                <span class="text-primary fw-bold fs-3">Pengumuman</span>
+            <div class="d-flex justify-content-center align-items-center w-100 gap-3 flex-wrap">
+                <a href="#" class="btn btn-primary">INFORMASI PPDB</a>
+                <a href="#" class="btn btn-warning">TATA CARA PPDB</a>
+                <a href="#" class="btn btn-info">PERSYARATAN PPDB</a>
+                <a href="#" class="btn btn-secondary">JADWAL PPDB</a>
             </div>
-            <hr class="hr" />
-            <?php if(empty($data_siswa)) { ?>
-                <div class="d-flex justify-content-center align-items-center w-100">
-                    <span class="text-black fw-bold fs-4">Tidak Ada Pengumuman</span>
-                </div>  
-            <?php } else { ?>
-                <div class="mt-3 mb-5">
-                    <div class="d-flex justify-content-center align-items-center w-100">
-                    <span class="text-black fw-bold">CALON SISWA JURUSAN AKUNTANSI 2023/2024</span>
-                    </div>  
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">NISN</th>
-                                <th scope="col">JK</th>
-                                <th scope="col">JURUSAN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="mb-5">
-                    <div class="d-flex justify-content-center align-items-center w-100">
-                    <span class="text-black fw-bold">CALON SISWA JURUSAN MULTIMEDIA 2023/2024</span>
-                    </div>  
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">NISN</th>
-                                <th scope="col">JK</th>
-                                <th scope="col">JURUSAN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="mb-5">
-                    <div class="d-flex justify-content-center align-items-center w-100">
-                    <span class="text-black fw-bold">CALON SISWA JURUSAN PEMASARAN 2023/2024</span>
-                    </div>  
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">NISN</th>
-                                <th scope="col">JK</th>
-                                <th scope="col">JURUSAN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            <?php } ?>
         </div>
     </div>
 </div>
