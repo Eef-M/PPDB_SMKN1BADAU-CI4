@@ -15,21 +15,21 @@ class JurusanController extends BaseController
 
         $jumlahSiswaPerJurusan = [];
 
-        $jurusanSiswa = $data_siswa->distinct()->findColumn('jurusan');
+        $jurusanSiswa = $data_siswa->distinct()->findColumn('id_jurusan');
 
         if ($jurusanSiswa !== null) {
             foreach ($jurusanSiswa as $jurusan) {
-                $jumlahSiswa = $data_siswa->where('jurusan', $jurusan)->countAllResults();
+                $jumlahSiswa = $data_siswa->where('id_jurusan', $jurusan)->countAllResults();
                 $jumlahSiswaPerJurusan[$jurusan] = $jumlahSiswa;
             }
         }
 
-        $jurusanGuru = $data_jurusan->distinct()->findColumn('jurusan');
+        $jurusanGuru = $data_jurusan->distinct()->findColumn('id');
 
         if ($jurusanGuru !== null) {
             foreach ($jurusanGuru as $jurusan) {
-                $jumlahSiswa = $data_siswa->where('jurusan', $jurusan)->countAllResults();
-                $data_jurusan->set(['siswa' => $jumlahSiswa])->where('jurusan', $jurusan)->update();
+                $jumlahSiswa = $data_siswa->where('id_jurusan', $jurusan)->countAllResults();
+                $data_jurusan->set(['siswa' => $jumlahSiswa])->where('id', $jurusan)->update();
             }
         }
 
@@ -62,7 +62,7 @@ class JurusanController extends BaseController
             $data = [
                 'gambar' => $gambarName,
                 'guru' => $this->request->getPost('guru'),
-                'jurusan' => $this->request->getPost('jurusan'),
+                'jurusan' => strtoupper($this->request->getPost('jurusan')),
                 'siswa' => 0,
             ];
 

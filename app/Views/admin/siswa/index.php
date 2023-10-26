@@ -65,7 +65,7 @@
 
                         <?php if (empty($data_siswa)) { ?>
                         <tr>
-                            <td colspan="9" class="text-center py-5 fs-4 text-dark">TIDAK ADA DATA</td>
+                            <td colspan="10" class="text-center py-5 fs-4 text-dark">TIDAK ADA DATA</td>
                         </tr>
                         <?php } else {
                             $n = 1;

@@ -160,7 +160,7 @@
         </tr>
         <tr>
             <td style="width: 200px; padding: 4px;">Jurusan</td>
-            <td style="width: auto; padding: 4px; font-weight: bold;"><?= $profile['jurusan'] ?></td>
+            <td style="width: auto; padding: 4px; font-weight: bold;"><?= $jurusan ?></td>
         </tr>
         <tr>
             <td style="width: 200px; padding: 4px;">Jenis Kelamin</td>

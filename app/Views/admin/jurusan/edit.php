@@ -48,12 +48,7 @@
                         <div class="d-flex justify-content-center align-items-center gap-4 flex-column flex-lg-row w-100">
                             <div class="d-flex flex-column justify-content-center align-items-start w-100">
                                 <label class="text-black fs-5">Jurusan</label>
-                                <select aria-label="Default select example" class="form-control border-secondary" name="jurusan">
-                                    <option selected>-- Pilih Jurusan --</option>
-                                    <option value="MULTIMEDIA">MULTIMEDIA</option>
-                                    <option value="PEMASARAN">PEMASARAN</option>
-                                    <option value="AKUNTANSI">AKUNTANSI</option>
-                                </select>
+                                <input type="text" class="form-control border-secondary" name="jurusan" placeholder="Masukkan Nama Jurusan" value="<?= $jurusan['jurusan'] ?>" >
                                 <!-- ERROR -->
                                 <?php if ($validation->getError('jurusan')) { ?>
                                     <div class="alert alert-danger mt-2" role="alert">

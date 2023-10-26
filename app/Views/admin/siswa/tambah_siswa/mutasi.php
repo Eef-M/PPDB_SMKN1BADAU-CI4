@@ -57,18 +57,22 @@
                             </div>
                             <div class="d-flex flex-column justify-content-center align-items-start w-100">
                                 <label class="text-black">Jurusan</label>
-                                <select aria-label="Default select example" class="form-control border-success"
-                                    name="jurusan">
-                                    <option selected>-- Pilih Jurusan --</option>
-                                    <option value="MULTIMEDIA">MULTIMEDIA</option>
-                                    <option value="PEMASARAN">PEMASARAN</option>
-                                    <option value="AKUNTANSI">AKUNTANSI</option>
+                                <select aria-label="Default select example" class="form-control border-success" name="id_jurusan">
+                                    <?php if (empty($jurusan)) { ?>
+                                        <option selected>Jurusan Belum Tersedia</option>
+                                    <?php } else { ?>
+                                        <option selected>-- Pilih Jurusan --</option>
+                                    <?php foreach($jurusan as $row) : ?>
+                                        <option value="<?= $row['id'] ?>"><?= $row['jurusan'] ?></option>
+                                    <?php endforeach; 
+                                    }
+                                    ?>
                                 </select>
                                 <!-- ERROR -->
-                                <?php if ($validation->getError('jurusan')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <b>Jurusan</b> harus di pilih
-                                </div>
+                                <?php if ($validation->getError('id_jurusan')) { ?>
+                                    <div class="alert alert-danger mt-2" role="alert">
+                                        <b>Jurusan</b> harus di pilih
+                                    </div>
                                 <?php } ?>
                             </div>
                         </div>

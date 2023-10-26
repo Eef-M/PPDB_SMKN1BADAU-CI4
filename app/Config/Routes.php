@@ -22,6 +22,9 @@ $routes->get('error-berkas', 'User\UserController::error_berkas');
 $routes->get('view-pdf/(:num)', 'User\UserController::view_pdf/$1');
 $routes->get('lihat-pdf/(:num)', 'User\UserController::lihat_pdf/$1');
 
+$routes->get('edit-nilai/(:num)', 'User\UserController::edit_nilai/$1');
+$routes->put('update-nilai/(:num)', 'User\UserController::update_nilai/$1');
+
 // Grup rute untuk menu dinamis
 $routes->group('menu', function ($routes) {
     $routes->add('(:any)', 'User\UserController::dynamicMenu/$1');

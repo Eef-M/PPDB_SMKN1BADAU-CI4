@@ -7,6 +7,7 @@ use App\Models\Data_siswa;
 use App\Models\Nilai_mapel;
 use App\Models\NilaiSertif;
 use App\Models\Upload_berkas;
+use App\Models\Jurusan;
 use CodeIgniter\HTTP\ResponseInterface;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -20,31 +21,43 @@ class SiswaController extends BaseController
     public function index()
     {
         $data_siswa = new Data_siswa();
-        $data['data_siswa'] = $data_siswa->findAll();
+        $data['data_siswa'] = $data_siswa->getSiswaWithJurusan();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/index', $data);
     }
 
     public function zonasi_form()
     {
+        $data_jurusan = new Jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/zonasi', $data);
     }
 
     public function afirmasi_form()
     {
+        $data_jurusan = new jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/afirmasi', $data);
     }
 
     public function mutasi_form()
     {
+        $data_jurusan = new Jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/mutasi', $data);
     }
 
     public function prestasi_form()
     {
+        $data_jurusan = new Jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/prestasi', $data);
     }
@@ -57,7 +70,7 @@ class SiswaController extends BaseController
             'nisn' => 'required|numeric',
             'nama_siswa' => 'required',
             'nik' => 'required|numeric',
-            'jurusan' => 'required',
+            'id_jurusan' => 'required',
             'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -127,7 +140,7 @@ class SiswaController extends BaseController
                 'nisn' => $this->request->getPost('nisn'),
                 'nama_siswa' => $this->request->getPost('nama_siswa'),
                 'nik' => $this->request->getPost('nik'),
-                'jurusan' => $this->request->getPost('jurusan'),
+                'id_jurusan' => $this->request->getPost('id_jurusan'),
                 'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
                 'tempat_lahir' => $this->request->getPost('tempat_lahir'),
                 'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
@@ -1118,7 +1131,7 @@ class SiswaController extends BaseController
     public function exportExcel()
     {
         $data_siswa = new Data_siswa();
-        $siswa = $data_siswa->findAll();
+        $siswa = $data_siswa->getSiswaWithJurusan();
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();

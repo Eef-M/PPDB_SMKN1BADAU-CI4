@@ -13,7 +13,7 @@ class Data_siswa extends Model
         'nisn',
         'nama_siswa',
         'nik',
-        'jurusan',
+        'id_jurusan',
         'jenis_kelamin',
         'tempat_lahir',
         'tanggal_lahir',
@@ -49,6 +49,14 @@ class Data_siswa extends Model
         $builder->orLike('nisn', $keyword);
         $builder->orLike('nik', $keyword);
         return $builder->get()->getResult();
+    }
+
+    public function getSiswaWithJurusan()
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('data_siswa.*, jurusan.jurusan');
+        $builder->join('jurusan', 'jurusan.id = data_siswa.id_jurusan');
+        return $builder->get()->getResultArray();
     }
 
     // public function dataUploadBerkas()

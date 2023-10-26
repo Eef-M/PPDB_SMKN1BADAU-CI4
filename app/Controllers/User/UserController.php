@@ -12,6 +12,7 @@ use App\Models\Nilai_mapel;
 use App\Models\Slideshow;
 use App\Models\Tahun_ajaran;
 use App\Models\Upload_berkas;
+use App\Models\Jurusan;
 use FPDF;
 use Config\Paths;
 
@@ -65,6 +66,7 @@ class UserController extends BaseController
         $dataSiswa = new Data_siswa();
         $nilaiMapel = new Nilai_mapel();
         $uploadBerkas = new Upload_berkas();
+        $jurusan = new Jurusan();
         $siswa = $dataSiswa->findAll();
 
         foreach ($siswa as $row) {
@@ -88,6 +90,78 @@ class UserController extends BaseController
         return view('users/ppdb', $data);
     }
 
+    public function edit_nilai($id) {
+        $dataSiswa = new Data_siswa();
+        $nilaiMapel = new Nilai_mapel();
+
+        $data['profile'] = $dataSiswa->find($id);
+        $data['nilai'] = $nilaiMapel->where('id_siswa', $id)->findAll();
+
+        $data['tahun_ajaran'] = $this->kondisi_TA();
+        $data['navigation'] = $this->menu_handle();
+        $data['navbar_active'] = 'ppdb';
+
+        return view('users/terdaftar/edit_nilai', $data);
+    }
+
+    public function update_nilai($id) {
+        $nilai_mapel = new Nilai_mapel();
+
+        $bindoHit = $this->request->getPost('bindo_1') + $this->request->getPost('bindo_2') + $this->request->getPost('bindo_3') + $this->request->getPost('bindo_4') + $this->request->getPost('bindo_5');
+        $bingHit = $this->request->getPost('bing_1') + $this->request->getPost('bing_2') + $this->request->getPost('bing_3') + $this->request->getPost('bing_4') + $this->request->getPost('bing_5');
+        $mtkHit = $this->request->getPost('mtk_1') + $this->request->getPost('mtk_2') + $this->request->getPost('mtk_3') + $this->request->getPost('mtk_4') + $this->request->getPost('mtk_5');
+        $ipaHit = $this->request->getPost('ipa_1') + $this->request->getPost('ipa_2') + $this->request->getPost('ipa_3') + $this->request->getPost('ipa_4') + $this->request->getPost('ipa_5');
+        $ipsHit = $this->request->getPost('ips_1') + $this->request->getPost('ips_2') + $this->request->getPost('ips_3') + $this->request->getPost('ips_4') + $this->request->getPost('ips_5');
+
+        $bindoBobot = $bindoHit / 5;
+        $bingBobot = $bingHit / 5;
+        $mtkBobot = $mtkHit / 5;
+        $ipaBobot = $ipaHit / 5;
+        $ipsBobot = $ipsHit / 5;
+
+        $hitBobotHasil = $bindoBobot + $bingBobot + $mtkBobot + $ipaBobot + $ipsBobot;
+        $bobotHasil = $hitBobotHasil / 5;
+
+        // Perhitungan Bobot End
+        $data = [
+            'bindo_1' => $this->request->getPost('bindo_1'),
+            'bindo_2' => $this->request->getPost('bindo_2'),
+            'bindo_3' => $this->request->getPost('bindo_3'),
+            'bindo_4' => $this->request->getPost('bindo_4'),
+            'bindo_5' => $this->request->getPost('bindo_5'),
+            'bing_1' => $this->request->getPost('bing_1'),
+            'bing_2' => $this->request->getPost('bing_2'),
+            'bing_3' => $this->request->getPost('bing_3'),
+            'bing_4' => $this->request->getPost('bing_4'),
+            'bing_5' => $this->request->getPost('bing_5'),
+            'mtk_1' => $this->request->getPost('mtk_1'),
+            'mtk_2' => $this->request->getPost('mtk_2'),
+            'mtk_3' => $this->request->getPost('mtk_3'),
+            'mtk_4' => $this->request->getPost('mtk_4'),
+            'mtk_5' => $this->request->getPost('mtk_5'),
+            'ipa_1' => $this->request->getPost('ipa_1'),
+            'ipa_2' => $this->request->getPost('ipa_2'),
+            'ipa_3' => $this->request->getPost('ipa_3'),
+            'ipa_4' => $this->request->getPost('ipa_4'),
+            'ipa_5' => $this->request->getPost('ipa_5'),
+            'ips_1' => $this->request->getPost('ips_1'),
+            'ips_2' => $this->request->getPost('ips_2'),
+            'ips_3' => $this->request->getPost('ips_3'),
+            'ips_4' => $this->request->getPost('ips_4'),
+            'ips_5' => $this->request->getPost('ips_5'),
+            'bobot_bindo' => $bindoBobot,
+            'bobot_bing' => $bingBobot,
+            'bobot_mtk' => $mtkBobot,
+            'bobot_ipa' => $ipaBobot,
+            'bobot_ips' => $ipsBobot,
+            'bobot_hasil' => $bobotHasil,
+        ];
+
+        $nilai_mapel->update($id, $data);
+
+        return redirect()->to(base_url('user-ppdb'))->with('status', '<div class="alert alert-success alert-dismissible mx-4" role="alert">Nilai Berhasil di Update<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+    }
+
     private function menu_handle()
     {
         $navigation = new Navigation();
@@ -100,6 +174,9 @@ class UserController extends BaseController
     {
         $dataSiswa = new Data_siswa();
         $footer = new Footer();
+        $data_jurusan = new Jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['footer'] = $footer->findAll();
         $data['semua_pendaftar'] = $dataSiswa->countAllResults();
         $data['pendaftar_laki2'] = $dataSiswa->where('jenis_kelamin', 'laki-laki')->countAllResults();
@@ -114,6 +191,9 @@ class UserController extends BaseController
     {
         $dataSiswa = new Data_siswa();
         $footer = new Footer();
+        $data_jurusan = new Jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['footer'] = $footer->findAll();
         $data['semua_pendaftar'] = $dataSiswa->countAllResults();
         $data['pendaftar_laki2'] = $dataSiswa->where('jenis_kelamin', 'laki-laki')->countAllResults();
@@ -128,6 +208,9 @@ class UserController extends BaseController
     {
         $dataSiswa = new Data_siswa();
         $footer = new Footer();
+        $data_jurusan = new Jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['footer'] = $footer->findAll();
         $data['semua_pendaftar'] = $dataSiswa->countAllResults();
         $data['pendaftar_laki2'] = $dataSiswa->where('jenis_kelamin', 'laki-laki')->countAllResults();
@@ -142,6 +225,9 @@ class UserController extends BaseController
     {
         $dataSiswa = new Data_siswa();
         $footer = new Footer();
+        $data_jurusan = new Jurusan();
+
+        $data['jurusan'] = $data_jurusan->findAll();
         $data['footer'] = $footer->findAll();
         $data['semua_pendaftar'] = $dataSiswa->countAllResults();
         $data['pendaftar_laki2'] = $dataSiswa->where('jenis_kelamin', 'laki-laki')->countAllResults();
@@ -182,7 +268,7 @@ class UserController extends BaseController
             'nisn' => $this->request->getPost('nisn'),
             'nama_siswa' => $this->request->getPost('nama_siswa'),
             'nik' => $this->request->getPost('nik'),
-            'jurusan' => $this->request->getPost('jurusan'),
+            'id_jurusan' => $this->request->getPost('id_jurusan'),
             'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
             'tempat_lahir' => $this->request->getPost('tempat_lahir'),
             'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
@@ -535,10 +621,19 @@ class UserController extends BaseController
         $siswaModel = new Data_siswa();
         $berkasModel = new Upload_berkas();
         $nilaiMapelModel = new Nilai_mapel();
+        $jurusanModel = new Jurusan();
 
         $siswa = $siswaModel->find($id);
         $data['profile'] = $siswa;
         $data['nilai'] = $nilaiMapelModel->where('id_siswa', $id)->findAll();
+        
+        $dataJurusan = $jurusanModel->where('id', $siswa['id_jurusan'])->findAll();
+
+        foreach ($dataJurusan as $dj) {
+            $jurusan = $dj['jurusan'];
+        }
+
+        $data['jurusan'] = $jurusan;
 
         $dataBerkas = $berkasModel->where('id_siswa', $id)->findAll();
 

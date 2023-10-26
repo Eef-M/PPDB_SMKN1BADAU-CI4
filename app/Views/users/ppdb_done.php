@@ -8,6 +8,11 @@
                 <span class="badge bg-success fw-bold fs-4 text-light">Anda Sudah Mendaftar <i class="fa-solid fa-check"></i></span>
             </div>
         </div>
+        <?php
+        if (session()->getFlashdata('status')) {
+            echo session()->getFlashdata('status');
+        }
+        ?>
         <a href="<?= base_url('view-pdf/' . $profile['id']) ?>" class="btn btn-info mb-3 mx-4"><i class="fa-sharp fa-solid fa-print"></i> CETAK BUKTI PENDAFTARAN</a>
         <div class="row justify-content-center align-items-center px-4 my-2">
             <div class="col-md-12">

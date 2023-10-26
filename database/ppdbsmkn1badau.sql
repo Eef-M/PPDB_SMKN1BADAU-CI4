@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Okt 2023 pada 08.01
+-- Waktu pembuatan: 26 Okt 2023 pada 10.55
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -132,7 +132,15 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (115, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-21 05:34:41', 1),
 (116, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-22 10:01:38', 1),
 (117, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-23 05:55:49', 1),
-(118, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-24 05:48:16', 1);
+(118, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-24 05:48:16', 1),
+(119, '::1', 'eudora@mail.com', 3, '2023-10-24 06:11:35', 1),
+(120, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-25 11:03:26', 1),
+(121, '::1', 'eudora@mail.com', 3, '2023-10-25 11:19:04', 1),
+(122, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-25 11:39:40', 1),
+(123, '::1', 'eudora@mail.com', 3, '2023-10-25 11:40:38', 1),
+(124, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-26 05:25:55', 1),
+(125, '::1', 'eudora@mail.com', 3, '2023-10-26 07:48:39', 1),
+(126, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-26 08:22:49', 1);
 
 -- --------------------------------------------------------
 
@@ -221,7 +229,7 @@ CREATE TABLE `data_siswa` (
   `nisn` varchar(255) NOT NULL,
   `nama_siswa` varchar(255) NOT NULL,
   `nik` varchar(255) NOT NULL,
-  `jurusan` enum('MULTIMEDIA','PEMASARAN','AKUNTANSI','') NOT NULL,
+  `id_jurusan` int(11) NOT NULL,
   `jenis_kelamin` enum('laki-laki','perempuan') NOT NULL,
   `tempat_lahir` varchar(255) NOT NULL,
   `tanggal_lahir` date NOT NULL,
@@ -249,8 +257,9 @@ CREATE TABLE `data_siswa` (
 -- Dumping data untuk tabel `data_siswa`
 --
 
-INSERT INTO `data_siswa` (`id`, `tanggal_pendaftaran`, `nisn`, `nama_siswa`, `nik`, `jurusan`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_dlm_kel`, `alamat`, `rt`, `rw`, `kelurahan`, `kecamatan`, `kab_kota`, `provinsi`, `nohp_siswa`, `nama_ayah`, `nik_ayah`, `nama_ibu`, `nik_ibu`, `nohp_ortu`, `jalur`, `status`, `verif`) VALUES
-(9, '2023-10-21', '1234567890', 'eudora lameria', '1902051708990002', 'AKUNTANSI', 'perempuan', 'Ibul', '2023-10-04', 'islam', 'Anak', 'Jl. Badau, Belitung, Bangka Belitung', '02', '01', 'Badau', 'Badau', 'Belitung', 'Bangka Belitung', '08192988819129', 'Moskov', '190208191919191919', 'Selena', '190208191919191919', '0871818192192', 'zonasi', 0, 0);
+INSERT INTO `data_siswa` (`id`, `tanggal_pendaftaran`, `nisn`, `nama_siswa`, `nik`, `id_jurusan`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_dlm_kel`, `alamat`, `rt`, `rw`, `kelurahan`, `kecamatan`, `kab_kota`, `provinsi`, `nohp_siswa`, `nama_ayah`, `nik_ayah`, `nama_ibu`, `nik_ibu`, `nohp_ortu`, `jalur`, `status`, `verif`) VALUES
+(10, '2023-10-26', '90909099090', 'Nana', '9087765432122221', 2, 'perempuan', 'Badau', '2023-10-01', 'islam', 'Anak', 'Jl. Badau', '2', '1', 'Badau', 'Badau', 'Belitung', 'Bangka Belitung', '0819191919191', 'Moskov', '19929191919111', 'Selenda', '1828918291812', '08191919191919', 'zonasi', 1, 1),
+(11, '2023-10-26', '1234567890', 'eudora lameria', '1902051708990002', 4, 'perempuan', 'Badau', '2023-10-04', 'islam', 'Anak', 'Jl. Badau', '001', '002', 'Badau', 'Badau', 'Belitung', 'Bangka Belitung', '081929384361', 'Moskov', '1902048899776662', 'Selena', '1902048899776665', '081992981921', 'zonasi', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -285,9 +294,18 @@ CREATE TABLE `jurusan` (
   `id` int(11) NOT NULL,
   `gambar` varchar(255) NOT NULL,
   `guru` varchar(128) NOT NULL,
-  `jurusan` enum('MULTIMEDIA','PEMASARAN','AKUNTANSI','') NOT NULL,
+  `jurusan` varchar(256) NOT NULL,
   `siswa` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `jurusan`
+--
+
+INSERT INTO `jurusan` (`id`, `gambar`, `guru`, `jurusan`, `siswa`) VALUES
+(2, '1698301907_68e386d0af463b485f0c.png', 'Erina', 'MULTIMEDIA', '1'),
+(4, '1698302472_1e42ac757c1ef81cd766.jpg', 'Wukong', 'AKUNTANSI', '0'),
+(5, '1698302501_e0b051365ceda1711016.jpg', 'Esme', 'PEMASARAN', '0');
 
 -- --------------------------------------------------------
 
@@ -371,7 +389,8 @@ CREATE TABLE `nilai_mapel` (
 --
 
 INSERT INTO `nilai_mapel` (`id`, `id_siswa`, `bindo_1`, `bindo_2`, `bindo_3`, `bindo_4`, `bindo_5`, `bing_1`, `bing_2`, `bing_3`, `bing_4`, `bing_5`, `mtk_1`, `mtk_2`, `mtk_3`, `mtk_4`, `mtk_5`, `ipa_1`, `ipa_2`, `ipa_3`, `ipa_4`, `ipa_5`, `ips_1`, `ips_2`, `ips_3`, `ips_4`, `ips_5`, `bobot_bindo`, `bobot_bing`, `bobot_mtk`, `bobot_ipa`, `bobot_ips`, `bobot_hasil`) VALUES
-(9, 9, '90', '90', '90', '89', '89', '89', '89', '89', '89', '89', '89', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '89.6', '89', '89.8', '90', '90', '89.68');
+(10, 10, '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90'),
+(11, 11, '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '89', '80', '100', '90', '90', '90', '90', '89.8', '89.96');
 
 -- --------------------------------------------------------
 
@@ -477,7 +496,8 @@ CREATE TABLE `upload_berkas` (
 --
 
 INSERT INTO `upload_berkas` (`id`, `id_siswa`, `foto`, `kartu_keluarga`, `scan_nisn`, `rpt_smstr_1`, `rpt_smstr_2`, `rpt_smstr_3`, `rpt_smstr_4`, `rpt_smstr_5`, `kel_kur_mampu`, `st_ortu`, `sertif_prestasi`) VALUES
-(9, 9, '1697866272_c80db8fbf3308b92c029.jpg', '1697866272_6eaa211c8a858f8c7c43.jpg', '1697866272_70890223560996f63a6f.png', '1697866272_e3a43e4519a44d5a5165.png', '1697866272_e7f9f8b514e5fb74005c.jpg', '1697866272_06d460179554547daea8.jpg', '1697866272_7cd56f0459fdf22103c1.png', '1697866272_ee06a5a3fde4bea378d3.png', '-', '-', '-');
+(10, 10, '1698303615_4bfec79e2b8dff50ddcc.jpg', '1698303615_19e1e2bca9e05b197a24.png', '1698303615_b8108a6833c5fdd54d19.png', '1698303615_4ae75fe7270c0bb8c2fa.png', '1698303615_3fdb9c06d0464f8fa55c.png', '1698303615_34a619f9683d6157e636.jpg', '1698303615_91613e28f26c955e8fef.png', '1698303615_a6b8eb1977bdb637e258.jpg', '-', '-', '-'),
+(11, 11, '1698306692_133d78a825f25e78f643.jpg', '1698306692_35b3048d4c4b3a774bb3.jpg', '1698306692_354d90bd33f56a4c312d.png', '1698306692_7711bef3f0cca0f19e7f.png', '1698306692_14b5c9e5f6ccd4f69f9c.png', '1698306692_cdd9096b1b4604786208.png', '1698306692_2c821c111f5aa831f4b2.jpg', '1698306692_faf6bc453f58b90d199b.png', '-', '-', '-');
 
 -- --------------------------------------------------------
 
@@ -589,7 +609,8 @@ ALTER TABLE `content`
 -- Indeks untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_jurusan` (`id_jurusan`);
 
 --
 -- Indeks untuk tabel `footer`
@@ -683,7 +704,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT untuk tabel `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT untuk tabel `auth_permissions`
@@ -713,7 +734,7 @@ ALTER TABLE `content`
 -- AUTO_INCREMENT untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `footer`
@@ -725,7 +746,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -743,7 +764,7 @@ ALTER TABLE `navigation_menu`
 -- AUTO_INCREMENT untuk tabel `nilai_mapel`
 --
 ALTER TABLE `nilai_mapel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `nilai_sertifikat`
@@ -773,7 +794,7 @@ ALTER TABLE `tahun_ajaran`
 -- AUTO_INCREMENT untuk tabel `upload_berkas`
 --
 ALTER TABLE `upload_berkas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
@@ -817,6 +838,12 @@ ALTER TABLE `auth_users_permissions`
 --
 ALTER TABLE `content`
   ADD CONSTRAINT `content_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `navigation_menu` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `data_siswa`
+--
+ALTER TABLE `data_siswa`
+  ADD CONSTRAINT `data_siswa_ibfk_1` FOREIGN KEY (`id_jurusan`) REFERENCES `jurusan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `nilai_mapel`

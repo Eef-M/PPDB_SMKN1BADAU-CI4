@@ -1,4 +1,7 @@
 <div class="table-responsive text-nowrap">
+    <div class="d-flex justify-content-end align-items-center w-100">
+        <a href="<?= base_url('edit-nilai/' . $profile['id']); ?>" class="btn btn-success mb-3">EDIT NILAI</a>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>

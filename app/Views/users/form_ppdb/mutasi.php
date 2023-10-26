@@ -65,13 +65,17 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="jurusan" class="form-label">Jurusan:</label>
-                                        <select id="jurusan" name="jurusan" class="form-control border-primary"
-                                            required>
+                                    <label for="id_jurusan" class="form-label">Jurusan:</label>
+                                        <select id="id_jurusan" name="id_jurusan" class="form-control border-primary" required>
+                                        <?php if (empty($jurusan)) { ?>
+                                            <option selected>Jurusan Belum Tersedia</option>
+                                        <?php } else { ?>
                                             <option selected>-- Pilih Jurusan --</option>
-                                            <option value="MULTIMEDIA">MULTIMEDIA</option>
-                                            <option value="PEMASARAN">PEMASARAN</option>
-                                            <option value="AKUNTANSI">AKUNTANSI</option>
+                                        <?php foreach($jurusan as $row) : ?>
+                                            <option value="<?= $row['id'] ?>"><?= $row['jurusan'] ?></option>
+                                        <?php endforeach; 
+                                        }
+                                        ?>
                                         </select>
                                         <div class="invalid-feedback">
                                             Jurusan harus dipilih.
