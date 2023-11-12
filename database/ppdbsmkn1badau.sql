@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Okt 2023 pada 10.55
+-- Waktu pembuatan: 12 Nov 2023 pada 14.14
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -105,42 +105,47 @@ CREATE TABLE `auth_logins` (
 --
 
 INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `success`) VALUES
-(91, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 20:37:10', 1),
-(92, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 20:40:25', 1),
-(93, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 20:42:32', 1),
-(94, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 21:24:22', 1),
-(95, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 21:24:22', 1),
-(96, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 21:35:00', 1),
-(97, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 21:39:08', 1),
-(98, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 21:54:23', 1),
-(99, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-15 22:13:47', 1),
-(100, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-20 10:07:05', 1),
-(101, '::1', 'admin@mail.com', NULL, '2023-10-20 11:57:48', 0),
-(102, '::1', 'bii.maylo@gmail.com', NULL, '2023-10-20 11:59:43', 0),
-(103, '::1', 'bii.maylo@gmail.com', NULL, '2023-10-20 12:00:08', 0),
-(104, '::1', '12345', NULL, '2023-10-20 12:14:34', 0),
-(105, '::1', '191010', NULL, '2023-10-20 12:15:01', 0),
-(106, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-20 12:15:10', 1),
-(107, '::1', '12345', NULL, '2023-10-20 12:15:32', 0),
-(108, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-20 12:41:42', 1),
-(109, '::1', '12345', NULL, '2023-10-21 04:54:24', 0),
-(110, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-21 04:54:32', 1),
-(111, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-21 04:56:10', 1),
-(112, '::1', 'eudora@mail.com', 3, '2023-10-21 05:15:38', 1),
-(113, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-21 05:16:56', 1),
-(114, '::1', 'eudora@mail.com', 3, '2023-10-21 05:17:41', 1),
-(115, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-21 05:34:41', 1),
-(116, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-22 10:01:38', 1),
-(117, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-23 05:55:49', 1),
-(118, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-24 05:48:16', 1),
-(119, '::1', 'eudora@mail.com', 3, '2023-10-24 06:11:35', 1),
-(120, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-25 11:03:26', 1),
-(121, '::1', 'eudora@mail.com', 3, '2023-10-25 11:19:04', 1),
-(122, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-25 11:39:40', 1),
-(123, '::1', 'eudora@mail.com', 3, '2023-10-25 11:40:38', 1),
-(124, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-26 05:25:55', 1),
-(125, '::1', 'eudora@mail.com', 3, '2023-10-26 07:48:39', 1),
-(126, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-10-26 08:22:49', 1);
+(186, '::1', 'eudora@mail.com', 3, '2023-11-02 08:37:59', 1),
+(187, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-02 09:12:48', 1),
+(188, '::1', 'eudora@mail.com', 3, '2023-11-02 09:18:05', 1),
+(189, '::1', 'eudora@mail.com', 3, '2023-11-02 09:54:25', 1),
+(190, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-02 10:18:30', 1),
+(191, '::1', 'eudora@mail.com', 3, '2023-11-02 10:19:46', 1),
+(192, '::1', 'eudora@mail.com', 3, '2023-11-02 15:08:47', 1),
+(193, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-02 20:52:28', 1),
+(194, '::1', 'eudora@mail.com', 3, '2023-11-03 12:05:50', 1),
+(195, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-03 12:07:28', 1),
+(196, '::1', 'eudora@mail.com', 3, '2023-11-06 08:18:38', 1),
+(197, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-06 08:19:15', 1),
+(198, '::1', 'eudora@mail.com', 3, '2023-11-06 11:17:02', 1),
+(199, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-06 11:17:27', 1),
+(200, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-06 13:29:03', 1),
+(201, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-07 06:02:27', 1),
+(202, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-07 10:29:54', 1),
+(203, '::1', 'eudora@mail.com', 3, '2023-11-07 11:08:35', 1),
+(204, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-07 11:13:45', 1),
+(205, '::1', 'eudora@mail.com', 3, '2023-11-07 11:14:16', 1),
+(206, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-07 11:45:49', 1),
+(207, '::1', 'eudora@mail.com', 3, '2023-11-07 12:37:44', 1),
+(208, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-07 12:55:58', 1),
+(209, '::1', 'eudora@mail.com', 3, '2023-11-07 14:08:05', 1),
+(210, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-07 14:13:05', 1),
+(211, '::1', 'eudora@mail.com', 3, '2023-11-07 17:59:59', 1),
+(212, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-07 18:00:45', 1),
+(213, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-10 01:43:27', 1),
+(214, '::1', 'eudora@mail.com', 3, '2023-11-10 01:58:50', 1),
+(215, '::1', 'eudora@mail.com', 3, '2023-11-10 08:24:17', 1),
+(216, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-10 08:49:00', 1),
+(217, '::1', 'eudora@mail.com', 3, '2023-11-10 08:49:31', 1),
+(218, '::1', 'eudora@mail.com', 3, '2023-11-10 15:49:47', 1),
+(219, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-10 15:50:30', 1),
+(220, '::1', 'eudora@mail.com', 3, '2023-11-10 16:03:40', 1),
+(221, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-10 16:04:53', 1),
+(222, '::1', 'eudora@mail.com', 3, '2023-11-10 16:14:47', 1),
+(223, '::1', 'eudora@mail.com', 3, '2023-11-11 04:29:58', 1),
+(224, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-11 07:01:35', 1),
+(225, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-11 11:56:20', 1),
+(226, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-12 12:45:24', 1);
 
 -- --------------------------------------------------------
 
@@ -234,7 +239,7 @@ CREATE TABLE `data_siswa` (
   `tempat_lahir` varchar(255) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `agama` enum('islam','kristen','hindu','budha') NOT NULL,
-  `status_dlm_kel` varchar(255) NOT NULL,
+  `status_dlm_kel` enum('suami','istri','anak','') NOT NULL,
   `alamat` text NOT NULL,
   `rt` varchar(50) NOT NULL,
   `rw` varchar(50) NOT NULL,
@@ -258,8 +263,7 @@ CREATE TABLE `data_siswa` (
 --
 
 INSERT INTO `data_siswa` (`id`, `tanggal_pendaftaran`, `nisn`, `nama_siswa`, `nik`, `id_jurusan`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_dlm_kel`, `alamat`, `rt`, `rw`, `kelurahan`, `kecamatan`, `kab_kota`, `provinsi`, `nohp_siswa`, `nama_ayah`, `nik_ayah`, `nama_ibu`, `nik_ibu`, `nohp_ortu`, `jalur`, `status`, `verif`) VALUES
-(10, '2023-10-26', '90909099090', 'Nana', '9087765432122221', 2, 'perempuan', 'Badau', '2023-10-01', 'islam', 'Anak', 'Jl. Badau', '2', '1', 'Badau', 'Badau', 'Belitung', 'Bangka Belitung', '0819191919191', 'Moskov', '19929191919111', 'Selenda', '1828918291812', '08191919191919', 'zonasi', 1, 1),
-(11, '2023-10-26', '1234567890', 'eudora lameria', '1902051708990002', 4, 'perempuan', 'Badau', '2023-10-04', 'islam', 'Anak', 'Jl. Badau', '001', '002', 'Badau', 'Badau', 'Belitung', 'Bangka Belitung', '081929384361', 'Moskov', '1902048899776662', 'Selena', '1902048899776665', '081992981921', 'zonasi', 0, 0);
+(42, '2023-11-10', '1234567890', 'eudora lameria', '1902051708990002', 5, 'perempuan', 'Badau', '2023-11-01', 'islam', 'anak', 'Jl. Badau', '1', '2', 'b', 'b', 'b', 'b', '18921', 'fff', '1728112', 'rrrr', '18201831', '01291812', 'mutasi', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -282,7 +286,7 @@ CREATE TABLE `footer` (
 --
 
 INSERT INTO `footer` (`id`, `profile`, `phone`, `email`, `alamat`, `ig`, `fb`) VALUES
-(3, 'Era globalisasi dengan segala implikasinya menjadi salah satu pemicu cepatnya perubahan yang terjadi pada berbagai aspek kehidupan masyarakat, termasuk dalam penyediaan tenaga kerja trampil pada dunia kerja. Dalam hal ini dunia pendidikan, khususnya SMK Negeri 1 Badau mempunyai tanggung jawab yang besar dalam menyiapkan sumber daya manusia yang tangguh sehingga mampu hidup selaras didalam perubahan teknologi. Dalam masa kepemimpinan Drs. Erli Pranajaya, SMK Negeri 1 Badau bertekad memberikan pelayanan pendidikan yang terbaik bagi siswa-siswanya. Semua perkembangan teknologi dicoba untuk diikuti dan diberikan kepada siswa sehingga lulusannya diharapkan mampu beradaptasi dengan dunia kerja sesuai dengan jurusannya.', '55555555', 'admin@smkn1badau.sch.id  ', 'Jl. Badau - Simpang Ranggiang', 'https://instagram.com/smkn1_badau?igshid=MzRlODBiNWFlZA==', 'https://web.facebook.com/smkn1badau/');
+(3, 'Era globalisasi dengan segala implikasinya menjadi salah satu pemicu cepatnya perubahan yang terjadi pada berbagai aspek kehidupan masyarakat, termasuk dalam penyediaan tenaga kerja trampil pada dunia kerja. Dalam hal ini dunia pendidikan, khususnya SMK Negeri 1 Badau mempunyai tanggung jawab yang besar dalam menyiapkan sumber daya manusia yang tangguh sehingga mampu hidup selaras didalam perubahan teknologi. Dalam masa kepemimpinan Drs. Erli Pranajaya, SMK Negeri 1 Badau bertekad memberikan pelayanan pendidikan yang terbaik bagi siswa-siswanya. Semua perkembangan teknologi dicoba untuk diikuti dan diberikan kepada siswa sehingga lulusannya diharapkan mampu beradaptasi dengan dunia kerja sesuai dengan jurusannya.', '081929001122', 'admin@smkn1badau.sch.id  ', 'Jl. Badau - Simpang Renggiang', 'https://instagram.com/smkn1_badau?igshid=MzRlODBiNWFlZA==', 'https://web.facebook.com/smkn1badau/');
 
 -- --------------------------------------------------------
 
@@ -303,9 +307,9 @@ CREATE TABLE `jurusan` (
 --
 
 INSERT INTO `jurusan` (`id`, `gambar`, `guru`, `jurusan`, `siswa`) VALUES
-(2, '1698301907_68e386d0af463b485f0c.png', 'Erina', 'MULTIMEDIA', '1'),
+(2, '1698301907_68e386d0af463b485f0c.png', 'Erina', 'MULTIMEDIA', '0'),
 (4, '1698302472_1e42ac757c1ef81cd766.jpg', 'Wukong', 'AKUNTANSI', '0'),
-(5, '1698302501_e0b051365ceda1711016.jpg', 'Esme', 'PEMASARAN', '0');
+(5, '1698302501_e0b051365ceda1711016.jpg', 'Esme', 'PEMASARAN', '1');
 
 -- --------------------------------------------------------
 
@@ -351,46 +355,46 @@ CREATE TABLE `navigation_menu` (
 CREATE TABLE `nilai_mapel` (
   `id` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
-  `bindo_1` varchar(12) NOT NULL,
-  `bindo_2` varchar(12) NOT NULL,
-  `bindo_3` varchar(12) NOT NULL,
-  `bindo_4` varchar(12) NOT NULL,
-  `bindo_5` varchar(12) NOT NULL,
-  `bing_1` varchar(12) NOT NULL,
-  `bing_2` varchar(12) NOT NULL,
-  `bing_3` varchar(12) NOT NULL,
-  `bing_4` varchar(12) NOT NULL,
-  `bing_5` varchar(12) NOT NULL,
-  `mtk_1` varchar(12) NOT NULL,
-  `mtk_2` varchar(12) NOT NULL,
-  `mtk_3` varchar(12) NOT NULL,
-  `mtk_4` varchar(12) NOT NULL,
-  `mtk_5` varchar(12) NOT NULL,
-  `ipa_1` varchar(12) NOT NULL,
-  `ipa_2` varchar(12) NOT NULL,
-  `ipa_3` varchar(12) NOT NULL,
-  `ipa_4` varchar(12) NOT NULL,
-  `ipa_5` varchar(12) NOT NULL,
-  `ips_1` varchar(12) NOT NULL,
-  `ips_2` varchar(12) NOT NULL,
-  `ips_3` varchar(12) NOT NULL,
-  `ips_4` varchar(12) NOT NULL,
-  `ips_5` varchar(12) NOT NULL,
-  `bobot_bindo` varchar(12) NOT NULL,
-  `bobot_bing` varchar(12) NOT NULL,
-  `bobot_mtk` varchar(12) NOT NULL,
-  `bobot_ipa` varchar(12) NOT NULL,
-  `bobot_ips` varchar(12) NOT NULL,
-  `bobot_hasil` varchar(12) NOT NULL
+  `nisn` varchar(255) NOT NULL,
+  `bindo_1` double NOT NULL,
+  `bindo_2` double NOT NULL,
+  `bindo_3` double NOT NULL,
+  `bindo_4` double NOT NULL,
+  `bindo_5` double NOT NULL,
+  `bing_1` double NOT NULL,
+  `bing_2` double NOT NULL,
+  `bing_3` double NOT NULL,
+  `bing_4` double NOT NULL,
+  `bing_5` double NOT NULL,
+  `mtk_1` double NOT NULL,
+  `mtk_2` double NOT NULL,
+  `mtk_3` double NOT NULL,
+  `mtk_4` double NOT NULL,
+  `mtk_5` double NOT NULL,
+  `ipa_1` double NOT NULL,
+  `ipa_2` double NOT NULL,
+  `ipa_3` double NOT NULL,
+  `ipa_4` double NOT NULL,
+  `ipa_5` double NOT NULL,
+  `ips_1` double NOT NULL,
+  `ips_2` double NOT NULL,
+  `ips_3` double NOT NULL,
+  `ips_4` double NOT NULL,
+  `ips_5` double NOT NULL,
+  `bobot_bindo` double NOT NULL,
+  `bobot_bing` double NOT NULL,
+  `bobot_mtk` double NOT NULL,
+  `bobot_ipa` double NOT NULL,
+  `bobot_ips` double NOT NULL,
+  `bobot_hasil` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `nilai_mapel`
 --
 
-INSERT INTO `nilai_mapel` (`id`, `id_siswa`, `bindo_1`, `bindo_2`, `bindo_3`, `bindo_4`, `bindo_5`, `bing_1`, `bing_2`, `bing_3`, `bing_4`, `bing_5`, `mtk_1`, `mtk_2`, `mtk_3`, `mtk_4`, `mtk_5`, `ipa_1`, `ipa_2`, `ipa_3`, `ipa_4`, `ipa_5`, `ips_1`, `ips_2`, `ips_3`, `ips_4`, `ips_5`, `bobot_bindo`, `bobot_bing`, `bobot_mtk`, `bobot_ipa`, `bobot_ips`, `bobot_hasil`) VALUES
-(10, 10, '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90'),
-(11, 11, '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '90', '89', '80', '100', '90', '90', '90', '90', '89.8', '89.96');
+INSERT INTO `nilai_mapel` (`id`, `id_siswa`, `nisn`, `bindo_1`, `bindo_2`, `bindo_3`, `bindo_4`, `bindo_5`, `bing_1`, `bing_2`, `bing_3`, `bing_4`, `bing_5`, `mtk_1`, `mtk_2`, `mtk_3`, `mtk_4`, `mtk_5`, `ipa_1`, `ipa_2`, `ipa_3`, `ipa_4`, `ipa_5`, `ips_1`, `ips_2`, `ips_3`, `ips_4`, `ips_5`, `bobot_bindo`, `bobot_bing`, `bobot_mtk`, `bobot_ipa`, `bobot_ips`, `bobot_hasil`) VALUES
+(35, 42, '1234567890', 90.1, 56, 45.7, 78.6, 90, 75.5, 89, 89, 90, 10, 90, 43.2, 89.5, 56, 55, 67, 89, 90, 90, 100, 100, 89, 100, 67, 55, 72.08, 70.7, 66.74, 87.2, 82.2, 75.784);
 
 -- --------------------------------------------------------
 
@@ -425,6 +429,19 @@ CREATE TABLE `pengumuman` (
 INSERT INTO `pengumuman` (`id`, `foto`, `judul`, `isi`, `created_at`) VALUES
 (6, '1685955659_c4012bd5da9f683c7b50.jpg', 'PENGLEPASAN KELAS XII TA 2022/2023', 'Selasa, 2 Mei 2023 SMKN 1 Badau mengadakan acara perpisahan sekaligus pelepasan siswa-siswi kelas XII SMKN 1 Badau yang telah dinyatakan lulus pada tanggal 5 Mei 2023. Acara bertajuk Purna Wiyata XII atau penglepasan siswa kelas XII ini berjalan hikmat dengan dihadiri juga oleh Kepala Dinas Pendidikan Kabupaten Belitung yang diwakili oleh Kasi SMK, Ketua Komite SMKN 1 Badau, Pengawas SMK Cabdin wilayah V, dewan guru SMKN 1 Badau, Kepala dan Wakil SMKN 1 Badau.\r\n\r\nDalam kegiatan tersebut ketua OSIS SMKN 1 Badau mengucapkan selamat dan sukses kepada kakak kelas XII yang telah lulus dari SMKN 1 Badau.\r\n\r\nUntuk mengapresiasi siswa-siswi yang berprestasi diadakan penyerahan penghargaan berupa sertifikat dan pengalungan medali kepada siswa-siswi 3 besar terbaik dalam setiap jurusan yang diberikan oleh ketua kompetensi keahlian jurusan Akuntansi Keuangan dan Lembaga, Bisnis Daring dan Pemasaran dan Multimedia.\r\n\r\nAcara yang juga dihadiri oleh seluruh dewan guru dan tenaga kependidikan SMKN 1 Badau dan Orang tua siswa kelas XII berjalan khidmat, dilanjut dengan proses pelepasan bet sekolah sebagai simbolis bahwa kami telah resmi melepas siswa-siswi yang telah lulus untuk menempuh kehidupan selanjutnya diluar lingkungan sekolah.\r\n\r\nDengan dilepasnya 127 orang siswa-siswi SMKN 1 Badau pada tanggal 2 Mei kemarin diharapkan dapat menyumbangkan lulusan yang bermanfaat bagi agama, orang tua, bangsa dan negara.\r\n\r\nSerupa dengan pesan yang disampaikan oleh Bapak Kusniardi, S.Pd selaku Kepala SMKN 1 Badau “Untuk siswa-siswi yang telah dinyatakan lulus kedepannya baik untuk yang melanjutkan ke perguruan tinggi, bekerja maupun berwirausaha dapat menjadi insan yang berguna saat terjun dalam masyarakat sesuai dengan kecapakan dan kompetensi kalian masing-masing” .\r\n\r\nSelama acara perpisahan dan pelepasan siswa-siswi SMKN 1 Badau dimeriahkan juga dengan penampilan dari siswa-siswi kelas XI dan X eskul Tari SMKN 1 Badau, dan penampilan persembahan dari bapak-ibu guru.\r\n\r\nKegiatan Purna Wiyata XII atau pelepasan siswa kelas XII SMKN 1 Badau ini diharapkan bisa menjadi momen yang berarti bagi para lulusan SMKN 1 Badau yang akan melanjutkan perjalanan kehidupan selanjutnya dan seluruh ilmu yang didapatkan selama 3 tahun di SMKN 1 Badau dapat menjadi bekal bagi perjalanan para lulusan.', '2023-06-05 09:00:59'),
 (7, '1685955715_3326b5e26d9b5a5e5630.jpg', 'SOSIALISASI ZAKAT PROFESI', 'Baznas Kabupaten Belitung melakukan sosialisasi Zakat Profesi di SMKN 1 Badau Kabupaten Belitung dalam rangka optimalisasi secara terukur pengumpulan zakat, infak dan sedekah. Sosialisasi Zakat profesi ini dilaksanakan di ruang mushola SMKN 1 Badau pada tanggal 6 April 2023 dihadiri oleh pimpinan Baznas Kabupaten Belitung (Bapak Drs Muhamadiyah) sebagai pemateri pada kegiatan sosialisasi.\r\n\r\nSelaku narasumber kegiatan ini menyampaikan bahwa perlunya meningkatkan kesadaran kepada masyarakat khususnya ASN dilingkungan SMK Negeri 1 Badau untuk dapat membayar zakat mal melalui pihak Baznas, karena selama ini masyarakat hanya terfokus kepada pembayaran zakat fitrah saja yang dibayarkan setiap setahun sekali pada bulan Ramadhan saja, sedangkan untuk pembayaran zakat mal masih sangat kurang.\r\n\r\nPeserta sosialisasi guru dan siswa mengikuti dengan antusias karena terhitung masih minim pengetahuan terkait zakat profesi ini. Acara diakhiri dengan diskusi dan tanya jawab seputar zakat mal.', '2023-06-05 09:01:55');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `penjadwalan`
+--
+
+CREATE TABLE `penjadwalan` (
+  `id` int(11) NOT NULL,
+  `kegiatan` varchar(225) NOT NULL,
+  `tanggal_mulai` date NOT NULL,
+  `tanggal_selesai` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -467,7 +484,7 @@ CREATE TABLE `tahun_ajaran` (
 --
 
 INSERT INTO `tahun_ajaran` (`id`, `tahun_ajaran`, `keterangan`, `tanggal_mulai`, `tanggal_selesai`, `is_active`) VALUES
-(11, '2023/2024', 'COBAA', '2023-10-10', '2023-10-24', 1);
+(14, '2023/2024', 'coba', '2023-11-06', '2023-11-11', 1);
 
 -- --------------------------------------------------------
 
@@ -478,14 +495,11 @@ INSERT INTO `tahun_ajaran` (`id`, `tahun_ajaran`, `keterangan`, `tanggal_mulai`,
 CREATE TABLE `upload_berkas` (
   `id` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
+  `nisn` varchar(255) NOT NULL,
   `foto` varchar(255) NOT NULL,
   `kartu_keluarga` varchar(255) NOT NULL,
   `scan_nisn` varchar(255) NOT NULL,
-  `rpt_smstr_1` varchar(255) NOT NULL,
-  `rpt_smstr_2` varchar(255) NOT NULL,
-  `rpt_smstr_3` varchar(255) NOT NULL,
-  `rpt_smstr_4` varchar(255) NOT NULL,
-  `rpt_smstr_5` varchar(255) NOT NULL,
+  `rpt_smstr_1sd5` varchar(255) NOT NULL,
   `kel_kur_mampu` varchar(255) NOT NULL,
   `st_ortu` varchar(225) NOT NULL,
   `sertif_prestasi` varchar(255) NOT NULL
@@ -495,9 +509,8 @@ CREATE TABLE `upload_berkas` (
 -- Dumping data untuk tabel `upload_berkas`
 --
 
-INSERT INTO `upload_berkas` (`id`, `id_siswa`, `foto`, `kartu_keluarga`, `scan_nisn`, `rpt_smstr_1`, `rpt_smstr_2`, `rpt_smstr_3`, `rpt_smstr_4`, `rpt_smstr_5`, `kel_kur_mampu`, `st_ortu`, `sertif_prestasi`) VALUES
-(10, 10, '1698303615_4bfec79e2b8dff50ddcc.jpg', '1698303615_19e1e2bca9e05b197a24.png', '1698303615_b8108a6833c5fdd54d19.png', '1698303615_4ae75fe7270c0bb8c2fa.png', '1698303615_3fdb9c06d0464f8fa55c.png', '1698303615_34a619f9683d6157e636.jpg', '1698303615_91613e28f26c955e8fef.png', '1698303615_a6b8eb1977bdb637e258.jpg', '-', '-', '-'),
-(11, 11, '1698306692_133d78a825f25e78f643.jpg', '1698306692_35b3048d4c4b3a774bb3.jpg', '1698306692_354d90bd33f56a4c312d.png', '1698306692_7711bef3f0cca0f19e7f.png', '1698306692_14b5c9e5f6ccd4f69f9c.png', '1698306692_cdd9096b1b4604786208.png', '1698306692_2c821c111f5aa831f4b2.jpg', '1698306692_faf6bc453f58b90d199b.png', '-', '-', '-');
+INSERT INTO `upload_berkas` (`id`, `id_siswa`, `nisn`, `foto`, `kartu_keluarga`, `scan_nisn`, `rpt_smstr_1sd5`, `kel_kur_mampu`, `st_ortu`, `sertif_prestasi`) VALUES
+(32, 42, '1234567890', '1699633332_3ead65d4a573b9e448fd.jpg', '1699633145_ee2deb4f18a70931341e.pdf', '1699633835_cc5bb45211317639e745.pdf', '1699634441_84e238a188b6c3d22116.pdf', '-', '1699634241_c224723e5417d8fab529.pdf', '-');
 
 -- --------------------------------------------------------
 
@@ -609,8 +622,7 @@ ALTER TABLE `content`
 -- Indeks untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_jurusan` (`id_jurusan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `footer`
@@ -654,6 +666,12 @@ ALTER TABLE `nilai_sertifikat`
 -- Indeks untuk tabel `pengumuman`
 --
 ALTER TABLE `pengumuman`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `penjadwalan`
+--
+ALTER TABLE `penjadwalan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -704,7 +722,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT untuk tabel `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
 
 --
 -- AUTO_INCREMENT untuk tabel `auth_permissions`
@@ -734,7 +752,7 @@ ALTER TABLE `content`
 -- AUTO_INCREMENT untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT untuk tabel `footer`
@@ -764,7 +782,7 @@ ALTER TABLE `navigation_menu`
 -- AUTO_INCREMENT untuk tabel `nilai_mapel`
 --
 ALTER TABLE `nilai_mapel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `nilai_sertifikat`
@@ -779,6 +797,12 @@ ALTER TABLE `pengumuman`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT untuk tabel `penjadwalan`
+--
+ALTER TABLE `penjadwalan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `slideshow`
 --
 ALTER TABLE `slideshow`
@@ -788,19 +812,19 @@ ALTER TABLE `slideshow`
 -- AUTO_INCREMENT untuk tabel `tahun_ajaran`
 --
 ALTER TABLE `tahun_ajaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `upload_berkas`
 --
 ALTER TABLE `upload_berkas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -840,16 +864,10 @@ ALTER TABLE `content`
   ADD CONSTRAINT `content_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `navigation_menu` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `data_siswa`
---
-ALTER TABLE `data_siswa`
-  ADD CONSTRAINT `data_siswa_ibfk_1` FOREIGN KEY (`id_jurusan`) REFERENCES `jurusan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Ketidakleluasaan untuk tabel `nilai_mapel`
 --
 ALTER TABLE `nilai_mapel`
-  ADD CONSTRAINT `nilai_mapel_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `data_siswa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `nilai_mapel_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `data_siswa` (`id`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `nilai_sertifikat`
@@ -861,7 +879,7 @@ ALTER TABLE `nilai_sertifikat`
 -- Ketidakleluasaan untuk tabel `upload_berkas`
 --
 ALTER TABLE `upload_berkas`
-  ADD CONSTRAINT `upload_berkas_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `data_siswa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `upload_berkas_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `data_siswa` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
