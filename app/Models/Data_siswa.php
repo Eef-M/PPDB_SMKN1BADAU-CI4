@@ -45,10 +45,32 @@ class Data_siswa extends Model
     public function cariSiswa($keyword)
     {
         $builder = $this->table($this->table);
-        $builder->like('nama_siswa', $keyword);
-        $builder->orLike('nisn', $keyword);
-        $builder->orLike('nik', $keyword);
+        $builder->select('data_siswa.*, jurusan.jurusan');
+        $builder->join('jurusan', 'jurusan.id = data_siswa.id_jurusan');
+        $builder->like('data_siswa.nama_siswa', $keyword);
+        $builder->orLike('data_siswa.nisn', $keyword);
+        $builder->orLike('data_siswa.nik', $keyword);
         return $builder->get()->getResult();
+    }
+
+    public function getIdByNisn($nisn)
+    {
+        return $this->select('id')
+            ->where('nisn', $nisn)
+            ->first();
+    }
+
+    public function getNisnById($id)
+    {
+        return $this->select('nisn')
+            ->where('id', $id)
+            ->first();
+    }
+
+    public function getJalurByNisn($nisn) {
+        return $this->select('jalur')
+                ->where('nisn', $nisn)
+                ->first();
     }
 
     public function getSiswaWithJurusan()

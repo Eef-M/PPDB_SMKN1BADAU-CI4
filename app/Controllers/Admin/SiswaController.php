@@ -15,6 +15,10 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Font;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use CodeIgniter\I18n\Time;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Cezpdf;
 
 class SiswaController extends BaseController
 {
@@ -29,7 +33,10 @@ class SiswaController extends BaseController
     public function zonasi_form()
     {
         $data_jurusan = new Jurusan();
+        $time = new Time('now');
+        $theDate = $time->format('d/m/Y');
 
+        $data['date'] = $theDate;
         $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/zonasi', $data);
@@ -38,7 +45,10 @@ class SiswaController extends BaseController
     public function afirmasi_form()
     {
         $data_jurusan = new jurusan();
+        $time = new Time('now');
+        $theDate = $time->format('d/m/Y');
 
+        $data['date'] = $theDate;
         $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/afirmasi', $data);
@@ -47,7 +57,10 @@ class SiswaController extends BaseController
     public function mutasi_form()
     {
         $data_jurusan = new Jurusan();
+        $time = new Time('now');
+        $theDate = $time->format('d/m/Y');
 
+        $data['date'] = $theDate;
         $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/mutasi', $data);
@@ -56,7 +69,10 @@ class SiswaController extends BaseController
     public function prestasi_form()
     {
         $data_jurusan = new Jurusan();
+        $time = new Time('now');
+        $theDate = $time->format('d/m/Y');
 
+        $data['date'] = $theDate;
         $data['jurusan'] = $data_jurusan->findAll();
         $data['sidebar_active'] = 'data_siswa';
         return view('admin/siswa/tambah_siswa/prestasi', $data);
@@ -64,12 +80,14 @@ class SiswaController extends BaseController
 
     public function store()
     {
+        $time = new Time('now');
+        $theDate = $time->toDateString();
         helper('form');
         $rules = [
-            'tanggal_pendaftaran' => 'required',
-            'nisn' => 'required|numeric',
-            'nama_siswa' => 'required',
-            'nik' => 'required|numeric',
+            // 'tanggal_pendaftaran' => 'required',
+            'nisn' => 'required|numeric|min_length[10]',
+            'nama_siswa' => 'required|alpha_space',
+            'nik' => 'required|numeric|min_length[16]',
             'id_jurusan' => 'required',
             'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
@@ -77,8 +95,8 @@ class SiswaController extends BaseController
             'agama' => 'required',
             'status_dlm_kel' => 'required',
             'alamat' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
+            'rt' => 'required|numeric',
+            'rw' => 'required|numeric',
             'kelurahan' => 'required',
             'kecamatan' => 'required',
             'kab_kota' => 'required',
@@ -91,14 +109,14 @@ class SiswaController extends BaseController
             'nohp_ortu' => 'required|numeric',
             // Nilai Mapel
             // ipload berkas
-            'foto' => 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,4096]',
-            'kartu_keluarga' => 'uploaded[kartu_keluarga]|mime_in[kartu_keluarga,image/jpg,image/jpeg,image/gif,image/png]|max_size[kartu_keluarga,4096]',
-            'scan_nisn' => 'uploaded[scan_nisn]|mime_in[scan_nisn,image/jpg,image/jpeg,image/gif,image/png]|max_size[scan_nisn,4096]',
-            'rpt_smstr_1' => 'uploaded[rpt_smstr_1]|mime_in[rpt_smstr_1,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_1,4096]',
-            'rpt_smstr_2' => 'uploaded[rpt_smstr_2]|mime_in[rpt_smstr_2,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_2,4096]',
-            'rpt_smstr_3' => 'uploaded[rpt_smstr_3]|mime_in[rpt_smstr_3,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_3,4096]',
-            'rpt_smstr_4' => 'uploaded[rpt_smstr_4]|mime_in[rpt_smstr_4,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_4,4096]',
-            'rpt_smstr_5' => 'uploaded[rpt_smstr_5]|mime_in[rpt_smstr_5,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_5,4096]',
+            // 'foto' => 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,4096]',
+            // 'kartu_keluarga' => 'uploaded[kartu_keluarga]|mime_in[kartu_keluarga,image/jpg,image/jpeg,image/gif,image/png]|max_size[kartu_keluarga,4096]',
+            // 'scan_nisn' => 'uploaded[scan_nisn]|mime_in[scan_nisn,image/jpg,image/jpeg,image/gif,image/png]|max_size[scan_nisn,4096]',
+            // 'rpt_smstr_1' => 'uploaded[rpt_smstr_1]|mime_in[rpt_smstr_1,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_1,4096]',
+            // 'rpt_smstr_2' => 'uploaded[rpt_smstr_2]|mime_in[rpt_smstr_2,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_2,4096]',
+            // 'rpt_smstr_3' => 'uploaded[rpt_smstr_3]|mime_in[rpt_smstr_3,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_3,4096]',
+            // 'rpt_smstr_4' => 'uploaded[rpt_smstr_4]|mime_in[rpt_smstr_4,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_4,4096]',
+            // 'rpt_smstr_5' => 'uploaded[rpt_smstr_5]|mime_in[rpt_smstr_5,image/jpg,image/jpeg,image/gif,image/png]|max_size[rpt_smstr_5,4096]',
         ];
 
         $rules2 = [
@@ -136,7 +154,7 @@ class SiswaController extends BaseController
             $upload_berkas = new Upload_berkas();
 
             $data1 = [
-                'tanggal_pendaftaran' => $this->request->getPost('tanggal_pendaftaran'),
+                'tanggal_pendaftaran' => $theDate,
                 'nisn' => $this->request->getPost('nisn'),
                 'nama_siswa' => $this->request->getPost('nama_siswa'),
                 'nik' => $this->request->getPost('nik'),
@@ -168,43 +186,45 @@ class SiswaController extends BaseController
             // Nilai Process
 
             $jalur = $this->request->getPost('jalur');
+            $NISN_Siswa = $data_siswa->getNisnById($data_siswa->insertID);
 
             $data2 = array();
 
             if ($jalur == 'afirmasi') {
                 $data2 = [
                     'id_siswa' => $data_siswa->insertID,
-                    'bindo_1' => '-',
-                    'bindo_2' => '-',
-                    'bindo_3' => '-',
-                    'bindo_4' => '-',
-                    'bindo_5' => '-',
-                    'bing_1' => '-',
-                    'bing_2' => '-',
-                    'bing_3' => '-',
-                    'bing_4' => '-',
-                    'bing_5' => '-',
-                    'mtk_1' => '-',
-                    'mtk_2' => '-',
-                    'mtk_3' => '-',
-                    'mtk_4' => '-',
-                    'mtk_5' => '-',
-                    'ipa_1' => '-',
-                    'ipa_2' => '-',
-                    'ipa_3' => '-',
-                    'ipa_4' => '-',
-                    'ipa_5' => '-',
-                    'ips_1' => '-',
-                    'ips_2' => '-',
-                    'ips_3' => '-',
-                    'ips_4' => '-',
-                    'ips_5' => '-',
-                    'bobot_bindo' => '-',
-                    'bobot_bing' => '-',
-                    'bobot_mtk' => '-',
-                    'bobot_ipa' => '-',
-                    'bobot_ips' => '-',
-                    'bobot_hasil' => '-',
+                    'nisn' => $NISN_Siswa,
+                    'bindo_1' => 0,
+                    'bindo_2' => 0,
+                    'bindo_3' => 0,
+                    'bindo_4' => 0,
+                    'bindo_5' => 0,
+                    'bing_1' => 0,
+                    'bing_2' => 0,
+                    'bing_3' => 0,
+                    'bing_4' => 0,
+                    'bing_5' => 0,
+                    'mtk_1' => 0,
+                    'mtk_2' => 0,
+                    'mtk_3' => 0,
+                    'mtk_4' => 0,
+                    'mtk_5' => 0,
+                    'ipa_1' => 0,
+                    'ipa_2' => 0,
+                    'ipa_3' => 0,
+                    'ipa_4' => 0,
+                    'ipa_5' => 0,
+                    'ips_1' => 0,
+                    'ips_2' => 0,
+                    'ips_3' => 0,
+                    'ips_4' => 0,
+                    'ips_5' => 0,
+                    'bobot_bindo' => 0,
+                    'bobot_bing' => 0,
+                    'bobot_mtk' => 0,
+                    'bobot_ipa' => 0,
+                    'bobot_ips' => 0,
+                    'bobot_hasil' => 0,
                 ];
             } else {
 
@@ -228,6 +248,7 @@ class SiswaController extends BaseController
                 // Perhitungan Bobot End
                 $data2 = [
                     'id_siswa' => $data_siswa->insertID,
+                    'nisn' => $NISN_Siswa,
                     'bindo_1' => $this->request->getPost('bindo_1'),
                     'bindo_2' => $this->request->getPost('bindo_2'),
                     'bindo_3' => $this->request->getPost('bindo_3'),
@@ -268,189 +289,152 @@ class SiswaController extends BaseController
 
             $data3 = array();
 
+            $up_foto = $this->request->getFile('foto');
+            $up_kk = $this->request->getFile('kartu_keluarga');
+            $up_scnisn = $this->request->getFile('scan_nisn');
+            $up_rpt1sd5 = $this->request->getFile('rpt_smstr_1sd5');
+            $up_kelkurmampu = $this->request->getFile('kel_kur_mampu');
+            $up_stortu = $this->request->getFile('st_ortu');
+            $up_sertifpres = $this->request->getFile('sertif_prestasi');
+
+            // Validasi jalur
             if ($jalur == 'zonasi') {
+                // Validasi tipe berkas
+                if (!$up_foto->isValid() || !in_array($up_foto->getClientMimeType(), ['image/jpeg', 'image/jpg', 'image/png']) || $up_foto->getSize() > 4 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-zonasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas foto harus berupa JPG, JPEG, atau PNG dan maksimal ukuran file 4MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
-                $up_foto = $this->request->getFile('foto');
-                $up_kk = $this->request->getFile('kartu_keluarga');
-                $up_scnisn = $this->request->getFile('scan_nisn');
-                $up_rpts1 = $this->request->getFile('rpt_smstr_1');
-                $up_rpts2 = $this->request->getFile('rpt_smstr_2');
-                $up_rpts3 = $this->request->getFile('rpt_smstr_3');
-                $up_rpts4 = $this->request->getFile('rpt_smstr_4');
-                $up_rpts5 = $this->request->getFile('rpt_smstr_5');
+                if (!$up_kk->isValid() || $up_kk->getClientMimeType() !== 'application/pdf' || $up_kk->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-zonasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas kartu keluarga harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
+                if (!$up_scnisn->isValid() || $up_scnisn->getClientMimeType() !== 'application/pdf' || $up_scnisn->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-zonasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas scan NISN harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+
+                if (!$up_rpt1sd5->isValid() || $up_rpt1sd5->getClientMimeType() !== 'application/pdf' || $up_rpt1sd5->getSize() > 20 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-zonasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas raport semester 1 sampai 5 harus berupa PDF dan maksimal ukuran file 20MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+
+                // Generate nama berkas dan simpan berkas
                 $name_foto = $up_foto->getRandomName();
                 $name_kk = $up_kk->getRandomName();
                 $name_scnisn = $up_scnisn->getRandomName();
-                $name_rpts1 = $up_rpts1->getRandomName();
-                $name_rpts2 = $up_rpts2->getRandomName();
-                $name_rpts3 = $up_rpts3->getRandomName();
-                $name_rpts4 = $up_rpts4->getRandomName();
-                $name_rpts5 = $up_rpts5->getRandomName();
-
-                $data3 = [
-                    'id_siswa' => $data_siswa->insertID,
-                    'foto' => $name_foto,
-                    'kartu_keluarga' => $name_kk,
-                    'scan_nisn' => $name_scnisn,
-                    'rpt_smstr_1' => $name_rpts1,
-                    'rpt_smstr_2' => $name_rpts2,
-                    'rpt_smstr_3' => $name_rpts3,
-                    'rpt_smstr_4' => $name_rpts4,
-                    'rpt_smstr_5' => $name_rpts5,
-                    'kel_kur_mampu' => '-',
-                    'st_ortu' => '-',
-                    'sertif_prestasi' => '-',
-                ];
-
-                $up_foto->move('uploads/berkas_siswa/', $name_foto);
-                $up_kk->move('uploads/berkas_siswa/', $name_kk);
-                $up_scnisn->move('uploads/berkas_siswa/', $name_scnisn);
-                $up_rpts1->move('uploads/berkas_siswa/', $name_rpts1);
-                $up_rpts2->move('uploads/berkas_siswa/', $name_rpts2);
-                $up_rpts3->move('uploads/berkas_siswa/', $name_rpts3);
-                $up_rpts4->move('uploads/berkas_siswa/', $name_rpts4);
-                $up_rpts5->move('uploads/berkas_siswa/', $name_rpts5);
+                $name_rpt1sd5 = $up_rpt1sd5->getRandomName();
+                $name_kelkurmampu = '-';
+                $name_stortu = '-';
+                $name_sertifpres = '-';
             } elseif ($jalur == 'afirmasi') {
+                // Validasi tipe berkas
+                if (!$up_foto->isValid() || !in_array($up_foto->getClientMimeType(), ['image/jpeg', 'image/jpg', 'image/png']) || $up_foto->getSize() > 4 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas foto harus berupa JPG, JPEG, atau PNG dan maksimal ukuran file 4MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
-                $up_foto = $this->request->getFile('foto');
-                $up_kk = $this->request->getFile('kartu_keluarga');
-                $up_scnisn = $this->request->getFile('scan_nisn');
-                $up_rpts1 = $this->request->getFile('rpt_smstr_1');
-                $up_rpts2 = $this->request->getFile('rpt_smstr_2');
-                $up_rpts3 = $this->request->getFile('rpt_smstr_3');
-                $up_rpts4 = $this->request->getFile('rpt_smstr_4');
-                $up_rpts5 = $this->request->getFile('rpt_smstr_5');
-                $up_kelkurmampu = $this->request->getFile('kel_kur_mampu');
+                if (!$up_kk->isValid() || $up_kk->getClientMimeType() !== 'application/pdf' || $up_kk->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas kartu keluarga harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
+                if (!$up_scnisn->isValid() || $up_scnisn->getClientMimeType() !== 'application/pdf' || $up_scnisn->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas scan NISN harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+
+                if (!$up_rpt1sd5->isValid() || $up_rpt1sd5->getClientMimeType() !== 'application/pdf' || $up_rpt1sd5->getSize() > 20 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas raport semester 1 sampai 5 harus berupa PDF dan maksimal ukuran file 20MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+                if (!$up_kelkurmampu->isValid() || $up_kelkurmampu->getClientMimeType() !== 'application/pdf' || $up_kelkurmampu->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas keluarga kurang mampu harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+                // Generate nama berkas dan simpan berkas
                 $name_foto = $up_foto->getRandomName();
                 $name_kk = $up_kk->getRandomName();
                 $name_scnisn = $up_scnisn->getRandomName();
-                $name_rpts1 = $up_rpts1->getRandomName();
-                $name_rpts2 = $up_rpts2->getRandomName();
-                $name_rpts3 = $up_rpts3->getRandomName();
-                $name_rpts4 = $up_rpts4->getRandomName();
-                $name_rpts5 = $up_rpts5->getRandomName();
+                $name_rpt1sd5 = $up_rpt1sd5->getRandomName();
                 $name_kelkurmampu = $up_kelkurmampu->getRandomName();
-
-                $data3 = [
-                    'id_siswa' => $data_siswa->insertID,
-                    'foto' => $name_foto,
-                    'kartu_keluarga' => $name_kk,
-                    'scan_nisn' => $name_scnisn,
-                    'rpt_smstr_1' => $name_rpts1,
-                    'rpt_smstr_2' => $name_rpts2,
-                    'rpt_smstr_3' => $name_rpts3,
-                    'rpt_smstr_4' => $name_rpts4,
-                    'rpt_smstr_5' => $name_rpts5,
-                    'kel_kur_mampu' => $name_kelkurmampu,
-                    'st_ortu' => '-',
-                    'sertif_prestasi' => '-',
-                ];
-
-                $up_foto->move('uploads/berkas_siswa/', $name_foto);
-                $up_kk->move('uploads/berkas_siswa/', $name_kk);
-                $up_scnisn->move('uploads/berkas_siswa/', $name_scnisn);
-                $up_rpts1->move('uploads/berkas_siswa/', $name_rpts1);
-                $up_rpts2->move('uploads/berkas_siswa/', $name_rpts2);
-                $up_rpts3->move('uploads/berkas_siswa/', $name_rpts3);
-                $up_rpts4->move('uploads/berkas_siswa/', $name_rpts4);
-                $up_rpts5->move('uploads/berkas_siswa/', $name_rpts5);
-                $up_kelkurmampu->move('uploads/berkas_siswa/', $name_kelkurmampu);
+                $name_stortu = '-';
+                $name_sertifpres = '-';
             } elseif ($jalur == 'mutasi') {
+                // Validasi tipe berkas
+                if (!$up_foto->isValid() || !in_array($up_foto->getClientMimeType(), ['image/jpeg', 'image/jpg', 'image/png']) || $up_foto->getSize() > 4 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas foto harus berupa JPG, JPEG, atau PNG dan maksimal ukuran file 4MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
-                $up_foto = $this->request->getFile('foto');
-                $up_kk = $this->request->getFile('kartu_keluarga');
-                $up_scnisn = $this->request->getFile('scan_nisn');
-                $up_rpts1 = $this->request->getFile('rpt_smstr_1');
-                $up_rpts2 = $this->request->getFile('rpt_smstr_2');
-                $up_rpts3 = $this->request->getFile('rpt_smstr_3');
-                $up_rpts4 = $this->request->getFile('rpt_smstr_4');
-                $up_rpts5 = $this->request->getFile('rpt_smstr_5');
-                $up_stortu = $this->request->getFile('st_ortu');
+                if (!$up_kk->isValid() || $up_kk->getClientMimeType() !== 'application/pdf' || $up_kk->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas kartu keluarga harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
+                if (!$up_scnisn->isValid() || $up_scnisn->getClientMimeType() !== 'application/pdf' || $up_scnisn->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas scan NISN harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+
+                if (!$up_rpt1sd5->isValid() || $up_rpt1sd5->getClientMimeType() !== 'application/pdf' || $up_rpt1sd5->getSize() > 20 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas raport semester 1 sampai 5 harus berupa PDF dan maksimal ukuran file 20MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+                if (!$up_stortu->isValid() || $up_stortu->getClientMimeType() !== 'application/pdf' || $up_stortu->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas surat ortu harus berupa PDF. dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+                // Generate nama berkas dan simpan berkas
                 $name_foto = $up_foto->getRandomName();
                 $name_kk = $up_kk->getRandomName();
                 $name_scnisn = $up_scnisn->getRandomName();
-                $name_rpts1 = $up_rpts1->getRandomName();
-                $name_rpts2 = $up_rpts2->getRandomName();
-                $name_rpts3 = $up_rpts3->getRandomName();
-                $name_rpts4 = $up_rpts4->getRandomName();
-                $name_rpts5 = $up_rpts5->getRandomName();
+                $name_rpt1sd5 = $up_rpt1sd5->getRandomName();
+                $name_kelkurmampu = '-';
                 $name_stortu = $up_stortu->getRandomName();
-
-                $data3 = [
-                    'id_siswa' => $data_siswa->insertID,
-                    'foto' => $name_foto,
-                    'kartu_keluarga' => $name_kk,
-                    'scan_nisn' => $name_scnisn,
-                    'rpt_smstr_1' => $name_rpts1,
-                    'rpt_smstr_2' => $name_rpts2,
-                    'rpt_smstr_3' => $name_rpts3,
-                    'rpt_smstr_4' => $name_rpts4,
-                    'rpt_smstr_5' => $name_rpts5,
-                    'kel_kur_mampu' => '-',
-                    'st_ortu' => $name_stortu,
-                    'sertif_prestasi' => '-',
-                ];
-
-                $up_foto->move('uploads/berkas_siswa/', $name_foto);
-                $up_kk->move('uploads/berkas_siswa/', $name_kk);
-                $up_scnisn->move('uploads/berkas_siswa/', $name_scnisn);
-                $up_rpts1->move('uploads/berkas_siswa/', $name_rpts1);
-                $up_rpts2->move('uploads/berkas_siswa/', $name_rpts2);
-                $up_rpts3->move('uploads/berkas_siswa/', $name_rpts3);
-                $up_rpts4->move('uploads/berkas_siswa/', $name_rpts4);
-                $up_rpts5->move('uploads/berkas_siswa/', $name_rpts5);
-                $up_stortu->move('uploads/berkas_siswa/', $name_stortu);
+                $name_sertifpres = '-';
             } elseif ($jalur == 'prestasi') {
+                // Validasi tipe berkas
+                if (!$up_foto->isValid() || !in_array($up_foto->getClientMimeType(), ['image/jpeg', 'image/jpg', 'image/png']) || $up_foto->getSize() > 4 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas foto harus berupa JPG, JPEG, atau PNG dan maksimal ukuran file 4MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
-                $up_foto = $this->request->getFile('foto');
-                $up_kk = $this->request->getFile('kartu_keluarga');
-                $up_scnisn = $this->request->getFile('scan_nisn');
-                $up_rpts1 = $this->request->getFile('rpt_smstr_1');
-                $up_rpts2 = $this->request->getFile('rpt_smstr_2');
-                $up_rpts3 = $this->request->getFile('rpt_smstr_3');
-                $up_rpts4 = $this->request->getFile('rpt_smstr_4');
-                $up_rpts5 = $this->request->getFile('rpt_smstr_5');
-                $up_sertifpres = $this->request->getFile('sertif_prestasi');
+                if (!$up_kk->isValid() || $up_kk->getClientMimeType() !== 'application/pdf' || $up_kk->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas kartu keluarga harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
 
+                if (!$up_scnisn->isValid() || $up_scnisn->getClientMimeType() !== 'application/pdf' || $up_scnisn->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas scan NISN harus berupa PDF dan maksimal ukuran file 10MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+
+                if (!$up_rpt1sd5->isValid() || $up_rpt1sd5->getClientMimeType() !== 'application/pdf' || $up_rpt1sd5->getSize() > 20 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas raport semester 1 sampai 5 harus berupa PDF dan maksimal ukuran file 20MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+                if (!$up_sertifpres->isValid() || $up_sertifpres->getClientMimeType() !== 'application/pdf' || $up_sertifpres->getSize() > 10 * 1024 * 1024) {
+                    return redirect()->to(base_url('siswa-tambah-afirmasi'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Berkas sertifikat prestasi harus berupa PDF dan maksimal ukuran file 20MB. Mohon Isi Ulang <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+                // Generate nama berkas dan simpan berkas
                 $name_foto = $up_foto->getRandomName();
                 $name_kk = $up_kk->getRandomName();
                 $name_scnisn = $up_scnisn->getRandomName();
-                $name_rpts1 = $up_rpts1->getRandomName();
-                $name_rpts2 = $up_rpts2->getRandomName();
-                $name_rpts3 = $up_rpts3->getRandomName();
-                $name_rpts4 = $up_rpts4->getRandomName();
-                $name_rpts5 = $up_rpts5->getRandomName();
+                $name_rpt1sd5 = $up_rpt1sd5->getRandomName();
+                $name_kelkurmampu = '-';
+                $name_stortu = '-';
                 $name_sertifpres = $up_sertifpres->getRandomName();
-
-                $data3 = [
-                    'id_siswa' => $data_siswa->insertID,
-                    'foto' => $name_foto,
-                    'kartu_keluarga' => $name_kk,
-                    'scan_nisn' => $name_scnisn,
-                    'rpt_smstr_1' => $name_rpts1,
-                    'rpt_smstr_2' => $name_rpts2,
-                    'rpt_smstr_3' => $name_rpts3,
-                    'rpt_smstr_4' => $name_rpts4,
-                    'rpt_smstr_5' => $name_rpts5,
-                    'kel_kur_mampu' => '-',
-                    'st_ortu' => '-',
-                    'sertif_prestasi' => $name_sertifpres,
-                ];
-
-                $up_foto->move('uploads/berkas_siswa/', $name_foto);
-                $up_kk->move('uploads/berkas_siswa/', $name_kk);
-                $up_scnisn->move('uploads/berkas_siswa/', $name_scnisn);
-                $up_rpts1->move('uploads/berkas_siswa/', $name_rpts1);
-                $up_rpts2->move('uploads/berkas_siswa/', $name_rpts2);
-                $up_rpts3->move('uploads/berkas_siswa/', $name_rpts3);
-                $up_rpts4->move('uploads/berkas_siswa/', $name_rpts4);
-                $up_rpts5->move('uploads/berkas_siswa/', $name_rpts5);
-                $up_sertifpres->move('uploads/berkas_siswa/', $name_sertifpres);
             } else {
                 return redirect()->to(base_url('siswa'))->with('status', '<div class="alert alert-danger alert-dismissible" role="alert"> Terjadi Error. Silahkan Coba lagi <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+            }
+
+            $data3 = [
+                'id_siswa' => $data_siswa->insertID,
+                'nisn' => $NISN_Siswa,
+                'foto' => $name_foto,
+                'kartu_keluarga' => $name_kk,
+                'scan_nisn' => $name_scnisn,
+                'rpt_smstr_1sd5' => $name_rpt1sd5,
+                'kel_kur_mampu' => $name_kelkurmampu,
+                'st_ortu' => $name_stortu,
+                'sertif_prestasi' => $name_sertifpres,
+            ];
+
+            $up_foto->move('uploads/berkas_siswa/', $name_foto);
+            $up_kk->move('uploads/berkas_siswa/', $name_kk);
+            $up_scnisn->move('uploads/berkas_siswa/', $name_scnisn);
+            $up_rpt1sd5->move('uploads/berkas_siswa/', $name_rpt1sd5);
+
+            if ($jalur == 'afirmasi') {
+                $up_kelkurmampu->move('uploads/berkas_siswa/', $name_kelkurmampu);
+            } elseif ($jalur == 'mutasi') {
+                $up_stortu->move('uploads/berkas_siswa/', $name_stortu);
+            } elseif ($jalur == 'prestasi') {
+                $up_sertifpres->move('uploads/berkas_siswa/', $name_sertifpres);
             }
 
             $upload_berkas->insertUploadBerkas($data3);
@@ -512,29 +496,9 @@ class SiswaController extends BaseController
                     unlink("uploads/berkas_siswa/" . $scan_nisn);
                 }
 
-                $rpt_smstr_1 = $data[0]['rpt_smstr_1'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1);
-                }
-
-                $rpt_smstr_2 = $data[0]['rpt_smstr_2'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_2)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_2);
-                }
-
-                $rpt_smstr_3 = $data[0]['rpt_smstr_3'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_3)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_3);
-                }
-
-                $rpt_smstr_4 = $data[0]['rpt_smstr_4'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_4)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_4);
-                }
-
-                $rpt_smstr_5 = $data[0]['rpt_smstr_5'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_5)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_5);
+                $rpt_smstr_1sd5 = $data[0]['rpt_smstr_1sd5'];
+                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1sd5)) {
+                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1sd5);
                 }
             }
         } elseif ($jalur == 'afirmasi') {
@@ -554,29 +518,9 @@ class SiswaController extends BaseController
                     unlink("uploads/berkas_siswa/" . $scan_nisn);
                 }
 
-                $rpt_smstr_1 = $data[0]['rpt_smstr_1'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1);
-                }
-
-                $rpt_smstr_2 = $data[0]['rpt_smstr_2'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_2)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_2);
-                }
-
-                $rpt_smstr_3 = $data[0]['rpt_smstr_3'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_3)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_3);
-                }
-
-                $rpt_smstr_4 = $data[0]['rpt_smstr_4'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_4)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_4);
-                }
-
-                $rpt_smstr_5 = $data[0]['rpt_smstr_5'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_5)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_5);
+                $rpt_smstr_1sd5 = $data[0]['rpt_smstr_1sd5'];
+                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1sd5)) {
+                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1sd5);
                 }
 
                 $kel_kur_mampu = $data[0]['kel_kur_mampu'];
@@ -601,29 +545,9 @@ class SiswaController extends BaseController
                     unlink("uploads/berkas_siswa/" . $scan_nisn);
                 }
 
-                $rpt_smstr_1 = $data[0]['rpt_smstr_1'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1);
-                }
-
-                $rpt_smstr_2 = $data[0]['rpt_smstr_2'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_2)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_2);
-                }
-
-                $rpt_smstr_3 = $data[0]['rpt_smstr_3'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_3)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_3);
-                }
-
-                $rpt_smstr_4 = $data[0]['rpt_smstr_4'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_4)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_4);
-                }
-
-                $rpt_smstr_5 = $data[0]['rpt_smstr_5'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_5)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_5);
+                $rpt_smstr_1sd5 = $data[0]['rpt_smstr_1sd5'];
+                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1sd5)) {
+                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1sd5);
                 }
 
                 $st_ortu = $data[0]['st_ortu'];
@@ -648,29 +572,9 @@ class SiswaController extends BaseController
                     unlink("uploads/berkas_siswa/" . $scan_nisn);
                 }
 
-                $rpt_smstr_1 = $data[0]['rpt_smstr_1'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1);
-                }
-
-                $rpt_smstr_2 = $data[0]['rpt_smstr_2'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_2)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_2);
-                }
-
-                $rpt_smstr_3 = $data[0]['rpt_smstr_3'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_3)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_3);
-                }
-
-                $rpt_smstr_4 = $data[0]['rpt_smstr_4'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_4)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_4);
-                }
-
-                $rpt_smstr_5 = $data[0]['rpt_smstr_5'];
-                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_5)) {
-                    unlink("uploads/berkas_siswa/" . $rpt_smstr_5);
+                $rpt_smstr_1sd5 = $data[0]['rpt_smstr_1sd5'];
+                if (file_exists("uploads/berkas_siswa/" . $rpt_smstr_1sd5)) {
+                    unlink("uploads/berkas_siswa/" . $rpt_smstr_1sd5);
                 }
 
                 $sertif_prestasi = $data[0]['sertif_prestasi'];
@@ -753,17 +657,17 @@ class SiswaController extends BaseController
         ];
 
         if ($this->validate($rules)) {
-            $data['sidebar_active'] = 'cari_siswa';
+            $data['sidebar_active'] = 'data_siswa';
             $keyword = $this->request->getPost('keyword');
 
             $data_siswa = new Data_siswa();
             $data['hasil_cari'] = $data_siswa->cariSiswa($keyword);
 
-            return view('admin/siswa/cari_siswa', $data);
+            return view('admin/siswa/index', $data);
         } else {
             $data['validation'] = $this->validator;
-            $data['sidebar_active'] = 'cari_siswa';
-            return view('admin/siswa/cari_siswa', $data);
+            $data['sidebar_active'] = 'data_siswa';
+            return view('admin/siswa/index', $data);
         }
     }
 
@@ -777,12 +681,12 @@ class SiswaController extends BaseController
     //
     public function bobot_zonasi()
     {
-
         $data_siswa = new Data_siswa();
         $nilai_mapel = new Nilai_mapel();
 
-        $siswa = $data_siswa->where('jalur', 'zonasi')->findAll();
-        $theData['zonasi'] = $data_siswa->where('jalur', 'zonasi')->findAll();
+        $theData['zonasi'] = $data_siswa->where('jalur', 'zonasi')->orderBy('FIELD(kelurahan, "badau", "ibul", "kacang butor", "cerucuk", "air batu buding", "sungai samak")')->findAll();
+
+        $siswa = $data_siswa->where('jalur', 'zonasi')->orderBy('FIELD(kelurahan, "badau", "ibul", "kacang butor", "cerucuk", "air batu buding", "sungai samak")')->findAll();
 
         $jumlahSiswaZonasi = $data_siswa->where('jalur', 'zonasi')->countAllResults();
         $totalSemuaSiswa = $data_siswa->countAllResults();
@@ -819,6 +723,7 @@ class SiswaController extends BaseController
                 'id' => $row['id'],
                 'nisn' => $row['nisn'],
                 'nama_siswa' => $row['nama_siswa'],
+                'kelurahan' => $row['kelurahan'],
                 'bindo' => $bindo,
                 'bing' => $bing,
                 'mtk' => $mtk,
@@ -832,6 +737,7 @@ class SiswaController extends BaseController
         $sidebar['sidebar_active'] = 'bobot_siswa';
         return view('admin/siswa/bobot_siswa/bobot_zonasi', array_merge($theData, $sidebar, ['data' => $data]));
     }
+
 
     public function bobot_afirmasi()
     {
@@ -1288,7 +1194,7 @@ class SiswaController extends BaseController
         $data_siswa = new Data_siswa();
         $nilai_mapel = new Nilai_mapel();
 
-        $siswa = $data_siswa->where('jalur', 'zonasi')->findAll();
+        $siswa = $data_siswa->where('jalur', 'zonasi')->orderBy('FIELD(kelurahan, "badau", "ibul", "kacang butor", "cerucuk", "air batu buding", "sungai samak")')->findAll();
 
         $jumlahSiswaZonasi = $data_siswa->where('jalur', 'zonasi')->countAllResults();
         $totalSemuaSiswa = $data_siswa->countAllResults();
@@ -1306,16 +1212,17 @@ class SiswaController extends BaseController
         $sheet->setCellValue('A1', 'No')->getStyle('A1')->getFont()->setBold(true);
         $sheet->setCellValue('B1', 'NISN')->getStyle('B1')->getFont()->setBold(true);
         $sheet->setCellValue('C1', 'Nama Siswa')->getStyle('C1')->getFont()->setBold(true);
-        $sheet->setCellValue('D1', 'Bahasa Indonesia')->getStyle('D1')->getFont()->setBold(true);
-        $sheet->setCellValue('E1', 'Bahasa Inggris')->getStyle('E1')->getFont()->setBold(true);
-        $sheet->setCellValue('F1', 'Matematika')->getStyle('F1')->getFont()->setBold(true);
-        $sheet->setCellValue('G1', 'IPA')->getStyle('G1')->getFont()->setBold(true);
-        $sheet->setCellValue('H1', 'IPS')->getStyle('H1')->getFont()->setBold(true);
-        $sheet->setCellValue('I1', 'Bobot Hasil')->getStyle('I1')->getFont()->setBold(true);
-        $sheet->setCellValue('J1', 'Persentase Zonasi')->getStyle('J1')->getFont()->setBold(true);
+        $sheet->setCellValue('D1', 'Kelurahan/Desa')->getStyle('D1')->getFont()->setBold(true);
+        $sheet->setCellValue('E1', 'Bahasa Indonesia')->getStyle('E1')->getFont()->setBold(true);
+        $sheet->setCellValue('F1', 'Bahasa Inggris')->getStyle('F1')->getFont()->setBold(true);
+        $sheet->setCellValue('G1', 'Matematika')->getStyle('G1')->getFont()->setBold(true);
+        $sheet->setCellValue('H1', 'IPA')->getStyle('H1')->getFont()->setBold(true);
+        $sheet->setCellValue('I1', 'IPS')->getStyle('I1')->getFont()->setBold(true);
+        $sheet->setCellValue('J1', 'Bobot Hasil')->getStyle('J1')->getFont()->setBold(true);
+        $sheet->setCellValue('K1', 'Persentase Zonasi')->getStyle('K1')->getFont()->setBold(true);
 
         // Set format teks menjadi center pada header
-        $headerStyle = $sheet->getStyle('A1:J1');
+        $headerStyle = $sheet->getStyle('A1:K1');
         $headerStyle->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
         $headerStyle->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
         $headerStyle->getFont()->setBold(true);
@@ -1348,13 +1255,14 @@ class SiswaController extends BaseController
             $sheet->setCellValue('A' . $row, $n);
             $sheet->setCellValue('B' . $row, $rowData['nisn']);
             $sheet->setCellValue('C' . $row, $rowData['nama_siswa']);
-            $sheet->setCellValue('D' . $row, $bindo);
-            $sheet->setCellValue('E' . $row, $bing);
-            $sheet->setCellValue('F' . $row, $mtk);
-            $sheet->setCellValue('G' . $row, $ipa);
-            $sheet->setCellValue('H' . $row, $ips);
-            $sheet->setCellValue('I' . $row, $bobot_hasil);
-            $sheet->setCellValue('J' . $row, $persentaseZonasi . '%');
+            $sheet->setCellValue('D' . $row, $rowData['kelurahan']);
+            $sheet->setCellValue('E' . $row, $bindo);
+            $sheet->setCellValue('F' . $row, $bing);
+            $sheet->setCellValue('G' . $row, $mtk);
+            $sheet->setCellValue('H' . $row, $ipa);
+            $sheet->setCellValue('I' . $row, $ips);
+            $sheet->setCellValue('J' . $row, $bobot_hasil);
+            $sheet->setCellValue('K' . $row, $persentaseZonasi . '%');
 
             $sheet->getRowDimension($row)->setRowHeight(-1);
             $sheet->getColumnDimension('A')->setWidth(18);
@@ -1367,13 +1275,14 @@ class SiswaController extends BaseController
             $sheet->getColumnDimension('H')->setWidth(18);
             $sheet->getColumnDimension('I')->setWidth(18);
             $sheet->getColumnDimension('J')->setWidth(18);
+            $sheet->getColumnDimension('K')->setWidth(18);
 
             $row++;
             $n++;
         }
 
         // Set format teks menjadi center pada data
-        $dataStyle = $sheet->getStyle('A2:J' . ($row - 1));
+        $dataStyle = $sheet->getStyle('A2:K' . ($row - 1));
         $dataStyle->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
         $dataStyle->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
 
@@ -1381,7 +1290,7 @@ class SiswaController extends BaseController
         $dataStyle->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
 
         // Tambahkan border vertical
-        for ($col = 'A'; $col != 'K'; ++$col) {
+        for ($col = 'A'; $col != 'L'; ++$col) {
             $sheet->getStyle($col . '1:' . $col . ($row - 1))->getBorders()->getVertical()->setBorderStyle(Border::BORDER_THIN);
         }
 
@@ -1736,5 +1645,22 @@ class SiswaController extends BaseController
         header('Cache-Control: max-age=0');
 
         $writer->save('php://output');
+    }
+
+    public function generatePdf($id, $field)
+    {
+        $upload_berkas = new Upload_berkas();
+        $fileData = $upload_berkas->find($id);
+
+        $filename = $fileData[$field];
+
+        $file = 'uploads/berkas_siswa/' . $filename;
+
+        // Set header untuk menampilkan PDF
+        header('Content-type: application/pdf');
+        header('Content-Disposition: inline; filename="' . $filename . '"');
+
+        // Baca file PDF dan kirimkan ke output
+        readfile($file);
     }
 }

@@ -34,7 +34,15 @@
                 <div data-i18n="Analytics">Jurusan</div>
             </a>
         </li>
-        <li class="menu-item <?= (isset($sidebar_active) && ($sidebar_active == 'data_siswa' || $sidebar_active == 'cari_siswa' || $sidebar_active == 'bobot_siswa')) ? 'active open' : '' ?>">
+
+        <li class="menu-item <?= (isset($sidebar_active) && $sidebar_active == 'jadwal') ? 'active' : '' ?>">
+            <a href="<?= base_url('penjadwalan') ?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-calendar"></i>
+                <div data-i18n="Analytics">Penjadwalan</div>
+            </a>
+        </li>
+
+        <li class="menu-item <?= (isset($sidebar_active) && ($sidebar_active == 'data_siswa' || $sidebar_active == 'bobot_siswa')) ? 'active open' : '' ?>">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
                 <div data-i18n="Account Settings">Siswa</div>
@@ -43,11 +51,6 @@
                 <li class="menu-item <?= (isset($sidebar_active) && $sidebar_active == 'data_siswa') ? 'active' : '' ?>">
                     <a href="<?= base_url('siswa') ?>" class="menu-link">
                         <div data-i18n="Account">Data Siswa</div>
-                    </a>
-                </li>
-                <li class="menu-item <?= (isset($sidebar_active) && $sidebar_active == 'cari_siswa') ? 'active' : '' ?>">
-                    <a href="<?= base_url('siswa-cari') ?>" class="menu-link">
-                        <div data-i18n="Notifications">Cari Siswa</div>
                     </a>
                 </li>
                 <li class="menu-item <?= (isset($sidebar_active) && $sidebar_active == 'bobot_siswa') ? 'active' : '' ?>">

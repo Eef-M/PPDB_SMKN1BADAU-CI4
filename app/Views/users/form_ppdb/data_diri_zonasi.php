@@ -181,8 +181,16 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="kelurahan" class="form-label">Kelurahan:</label>
-                <input type="text" id="kelurahan" name="kelurahan" class="form-control border-primary" required placeholder="Masukkan Kelurahan">
+                <label for="kelurahan" class="form-label">Kelurahan/Desa:</label>
+                <select name="kelurahan" id="kelurahan" class="form-control border-primary" required>
+                    <option selected>-- Pilih Kelurahan/Desa --</option>
+                    <option value="badau">Badau</option>
+                    <option value="ibul">Ibul</option>
+                    <option value="kacang butor">Kacang Butor</option>
+                    <option value="cerucuk">Cerucuk</option>
+                    <option value="air batu buding">Air Batu Buding</option>
+                    <option value="sungai samak">Sungai Samak</option>
+                </select>
                 <?php if ($validation->getError('kelurahan')) { ?>
                     <div class="alert alert-danger mt-2" role="alert">
                         <b>Kelurahan</b> harus di isi
@@ -195,7 +203,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="kecamatan" class="form-label">Kecamatan:</label>
-                <input type="text" id="kecamatan" name="kecamatan" class="form-control border-primary" required placeholder="Masukkan Kecamatan">
+                <input type="text" readonly id="kecamatan" name="kecamatan" class="form-control border-primary" required placeholder="Masukkan Kecamatan" value="Badau">
                 <?php if ($validation->getError('kecamatan')) { ?>
                     <div class="alert alert-danger mt-2" role="alert">
                         <b>Kecamatan</b> harus di isi
@@ -206,7 +214,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="kab_kota" class="form-label">Kabupaten/Kota:</label>
-                <input type="text" id="kab_kota" name="kab_kota" class="form-control border-primary" required placeholder="Masukkan Kabupaten/Kota">
+                <input type="text" id="kab_kota" value="Belitung" readonly name="kab_kota" class="form-control border-primary" required placeholder="Masukkan Kabupaten/Kota">
                 <?php if ($validation->getError('kab_kota')) { ?>
                     <div class="alert alert-danger mt-2" role="alert">
                         <b>Kabupaten/Kota</b> harus di isi
@@ -217,7 +225,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="provinsi" class="form-label">Provinsi:</label>
-                <input type="text" id="provinsi" name="provinsi" class="form-control border-primary" required placeholder="Masukkan Provinsi">
+                <input type="text" id="provinsi" name="provinsi" readonly value="Bangka Belitung" class="form-control border-primary" required placeholder="Masukkan Provinsi">
                 <?php if ($validation->getError('provinsi')) { ?>
                     <div class="alert alert-danger mt-2" role="alert">
                         <b>Provinsi</b> harus di isi

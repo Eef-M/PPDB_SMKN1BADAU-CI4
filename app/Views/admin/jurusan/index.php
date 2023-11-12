@@ -17,6 +17,13 @@
                 echo session()->getFlashdata('status');
             }
             ?>
+
+            <?php if (empty($siswa)) {
+                null;
+            } else { ?>
+                <span class="text-danger fst-italic">*Data Jurusan Tidak Bisa di hapus jika masih terdapat DATA SISWA</span>
+            <?php } ?>
+
             <div class="table-responsive text-nowrap">
                 <table class="table table-bordered">
                     <thead>
@@ -47,7 +54,11 @@
                                     <td><?= $item['siswa'] ?></td>
                                     <td>
                                         <a href="<?= base_url('jurusan/edit/' . $item['id']); ?>" class="btn btn-info"><i class='bx bxs-edit'></i></a>
-                                        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalCenter<?= $item['id'] ?>"><i class='bx bx-trash'></i></a>
+                                        <?php if (empty($siswa)) { ?>
+                                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalCenter<?= $item['id'] ?>"><i class='bx bx-trash'></i></a>
+                                        <?php } else {
+                                            null;
+                                        } ?>
                                     </td>
                                 </tr>
 

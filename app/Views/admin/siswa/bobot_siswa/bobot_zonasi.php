@@ -39,6 +39,7 @@
                             <th>No</th>
                             <th>NISN</th>
                             <th>Nama</th>
+                            <th>Kelurahan/Desa</th>
                             <th class="text-wrap">Bahasa Indonesia</th>
                             <th class="text-wrap">Bahasa Inggris</th>
                             <th>Matematika</th>
@@ -61,6 +62,7 @@
                             <td><?= $no; ?></td>
                             <td><?= $row['nisn']; ?></td>
                             <td class="text-wrap"><?= $row['nama_siswa']; ?></td>
+                            <td><?= $row['kelurahan']; ?></td>
                             <td><?= $row['bindo']; ?></td>
                             <td><?= $row['bing']; ?></td>
                             <td><?= $row['mtk']; ?></td>

@@ -47,16 +47,16 @@
                             ?>
                             <tr>
                                 <th scope="row"><?= $n; ?></th>
-                                <td><?= $ds['nama_siswa'] ?></td>
+                                <td><?= strtoupper($ds['nama_siswa']) ?></td>
                                 <td><?= $ds['nisn'] ?></td>
-                                <td><?= $ds['jenis_kelamin'] ?></td>
+                                <td><?= strtoupper($ds['jenis_kelamin']) ?></td>
                                 <td><?= $ds['jurusan'] ?></td>
                                 <td>
                                     <?php if ($ds['status'] == 0) { ?>
-                                    <span class="badge bg-warning text-dark fs-6">Dalam Proses</span>
+                                    <span class="badge bg-warning text-dark fs-6">DALAM PROSES</span>
                                     <?php } else if ($ds['status'] == 1) { ?>
-                                    <span class="badge bg-success fs-6">di terima</span>
-                                    <?php } else { ?> <span class="badge bg-danger fs-6">Tidak diterima</span> <?php } ?>
+                                    <span class="badge bg-success fs-6">LULUS</span>
+                                    <?php } else { ?> <span class="badge bg-danger fs-6">TIDAK LULUS</span> <?php } ?>
                                 </td>
                             </tr>
                             <?php
@@ -91,16 +91,16 @@
                             ?>
                             <tr>
                                 <th scope="row"><?= $n; ?></th>
-                                <td><?= $ds['nama_siswa'] ?></td>
+                                <td><?= strtoupper($ds['nama_siswa']) ?></td>
                                 <td><?= $ds['nisn'] ?></td>
-                                <td><?= $ds['jenis_kelamin'] ?></td>
+                                <td><?= strtoupper($ds['jenis_kelamin']) ?></td>
                                 <td><?= $ds['jurusan'] ?></td>
                                 <td>
                                     <?php if ($ds['status'] == 0) { ?>
-                                    <span class="badge bg-warning text-dark fs-6">Dalam Proses</span>
+                                    <span class="badge bg-warning text-dark fs-6">DALAM PROSES</span>
                                     <?php } else if ($ds['status'] == 1) { ?>
-                                    <span class="badge bg-success fs-6">di terima</span>
-                                    <?php } else { ?> <span class="badge bg-danger fs-6">Tidak diterima</span> <?php } ?>
+                                    <span class="badge bg-success fs-6">LULUS</span>
+                                    <?php } else { ?> <span class="badge bg-danger fs-6">TIDAK LULUS</span> <?php } ?>
                                 </td>
                             </tr>
                             <?php
@@ -135,16 +135,16 @@
                             ?>
                             <tr>
                                 <th scope="row"><?= $n; ?></th>
-                                <td><?= $ds['nama_siswa'] ?></td>
+                                <td><?= strtoupper($ds['nama_siswa']) ?></td>
                                 <td><?= $ds['nisn'] ?></td>
-                                <td><?= $ds['jenis_kelamin'] ?></td>
+                                <td><?= strtoupper($ds['jenis_kelamin']) ?></td>
                                 <td><?= $ds['jurusan'] ?></td>
                                 <td>
                                     <?php if ($ds['status'] == 0) { ?>
-                                    <span class="badge bg-warning text-dark fs-6">Dalam Proses</span>
+                                    <span class="badge bg-warning text-dark fs-6">DALAM PROSES</span>
                                     <?php } else if ($ds['status'] == 1) { ?>
-                                    <span class="badge bg-success fs-6">di terima</span>
-                                    <?php } else { ?> <span class="badge bg-danger fs-6">Tidak diterima</span> <?php } ?>
+                                    <span class="badge bg-success fs-6">LULUS</span>
+                                    <?php } else { ?> <span class="badge bg-danger fs-6">TIDAK LULUS</span> <?php } ?>
                                 </td>
                             </tr>
                             <?php

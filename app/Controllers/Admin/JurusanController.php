@@ -34,6 +34,7 @@ class JurusanController extends BaseController
         }
 
         $data['jurusan'] = $data_jurusan->findAll();
+        $data['siswa'] = $data_siswa->findAll();
 
         $data['sidebar_active'] = 'jurusan';
         return view('admin/jurusan/index', $data);

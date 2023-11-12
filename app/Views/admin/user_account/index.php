@@ -25,7 +25,8 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Email</th>
-                            <th>Nomor Telepon</th>
+                            <th>Nomor Telepon/NISN</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -37,12 +38,12 @@
                         <?php } else {
                             $no = 1;
                             foreach ($users as $user) : ?>
-                        <?php if ($user->name == 'admin') { ?>
                         <tr>
                             <td><?= $no; ?></td>
                             <td><?= $user->username; ?></td>
                             <td><?= $user->email; ?></td>
                             <td><?= $user->nisn; ?></td>
+                            <td><?= $user->name; ?></td>
                             <td>
                                 <?php if (user()->id == $user->userid) { ?>
                                 <span class="badge bg-label-info fs-5 w-100 py-3">Anda Sedang Login</span>
@@ -83,9 +84,6 @@
                             </div>
                         </div>
                         <!-- End Modal -->
-                        <?php } else {
-                                    null;
-                                } ?>
 
                         <?php $no++;
                             endforeach;

@@ -9,8 +9,8 @@ class FooterController extends BaseController
 {
     public function index()
     {
-        $slideshow = new Footer();
-        $data['footer'] = $slideshow->findAll();
+        $footer = new Footer();
+        $data['footer'] = $footer->findAll();
         $data['sidebar_active'] = 'footer';
         return view('admin/footer/index', $data);
     }
@@ -19,6 +19,48 @@ class FooterController extends BaseController
     {
         $data['sidebar_active'] = 'footer';
         return view('admin/footer/tambah', $data);
+    }
+
+    public function edit($id)
+    {
+        $footer = new Footer();
+        $data['footer'] = $footer->find($id);
+        $data['sidebar_active'] = 'footer';
+        return view('admin/footer/edit', $data);
+    }
+
+    public function update($id)
+    {
+        helper('form');
+        $rules = [
+            'profile' => 'required',
+            'alamat' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required',
+            'ig' => 'required',
+            'fb' => 'required',
+        ];
+
+        if ($this->validate($rules)) {
+            $footer = new Footer();
+            $data = [
+                'profile' => $this->request->getPost('profile'),
+                'alamat' => $this->request->getPost('alamat'),
+                'email' => $this->request->getPost('email'),
+                'phone' => $this->request->getPost('phone'),
+                'ig' => $this->request->getPost('ig'),
+                'fb' => $this->request->getPost('fb'),
+            ];
+
+            $footer->update($id, $data);
+            return redirect()->to(base_url('footer'))->with('status', '<div class="alert alert-primary alert-dismissible" role="alert">Footer Berhasil di Update<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+        } else {
+            $data['validation'] = $this->validator;
+            $footer = new Footer();
+            $data['footer'] = $footer->find($id);
+            $data['sidebar_active'] = 'footer';
+            return view('admin/footer/edit', $data);
+        }
     }
 
     public function store()

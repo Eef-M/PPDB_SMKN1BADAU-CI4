@@ -63,6 +63,7 @@
                                 <tr>
                                     <td colspan="2">
                                         <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalCenter<?= $item['id'] ?>">HAPUS FOOTER</a>
+                                        <a href="<?= base_url('footer/edit/'. $item['id']) ?>" class="btn btn-info">EDIT FOOTER</a>
                                     </td>
                                 </tr>
 

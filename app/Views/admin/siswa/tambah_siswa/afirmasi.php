@@ -27,7 +27,7 @@
                             class="d-flex justify-content-center align-items-center gap-4 flex-column flex-lg-row w-100">
                             <div class="d-flex flex-column justify-content-center align-items-start w-100">
                                 <label class="text-black">Tanggal Pendaftaran</label>
-                                <input type="date" class="form-control border-primary" name="tanggal_pendaftaran">
+                                <input type="text" class="form-control border-primary" disabled value="<?= $date; ?>">
                                 <!-- ERROR -->
                                 <?php if ($validation->getError('tanggal_pendaftaran')) { ?>
                                 <div class="alert alert-danger mt-2" role="alert">
@@ -147,8 +147,12 @@
                             </div>
                             <div class="d-flex flex-column justify-content-center align-items-start w-100">
                                 <label class="text-black">Status Dalam Keluarga:</label>
-                                <input class="form-control border-primary" name="status_dlm_kel"
-                                    placeholder="Masukkan Status Anda Dalam Keluarga">
+                                <select aria-label="Default select example" class="form-control border-primary" name="status_dlm_kel">
+                                    <option selected>-- Pilih Status --</option>
+                                    <option value="suami">Suami</option>
+                                    <option value="istri">Istri</option>
+                                    <option value="anak">Anak</option>
+                                </select>
                                 <!-- ERROR -->
                                 <?php if ($validation->getError('status_dlm_kel')) { ?>
                                 <div class="alert alert-danger mt-2" role="alert">
@@ -322,83 +326,30 @@
                         <div class="d-flex justify-content-center align-items-center w-100 gap-3">
                             <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
                                 <span class="text-black fs-5">Foto</span>
-                                <input type="file" class="form-control border-primary" name="foto">
-                                <?php if ($validation->getError('foto')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('foto') ?>
-                                </div>
-                                <?php } ?>
+                                <input type="file" class="form-control border-primary" name="foto" required>
+                                <span class="text-secondary fst-italic mt-2" style="font-size: 14px;">Format file JPG/JPEG/PNG. Max 4MB</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
                                 <span class="text-black fs-5">Kartu Keluarga</span>
-                                <input type="file" class="form-control border-primary" name="kartu_keluarga">
-                                <?php if ($validation->getError('kartu_keluarga')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('kartu_keluarga') ?>
-                                </div>
-                                <?php } ?>
+                                <input type="file" class="form-control border-primary" name="kartu_keluarga" required>
+                                <span class="text-secondary fst-italic mt-2" style="font-size: 14px;">Format file PDF. Max 10MB</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
                                 <span class="text-black fs-5">Scan Kartu NISN</span>
-                                <input type="file" class="form-control border-primary" name="scan_nisn">
-                                <?php if ($validation->getError('scan_nisn')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('scan_nisn') ?>
-                                </div>
-                                <?php } ?>
+                                <input type="file" class="form-control border-primary" name="scan_nisn" required>
+                                <span class="text-secondary fst-italic mt-2" style="font-size: 14px;">Format file PDF. Max 10MB</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center w-100 gap-3">
                             <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
-                                <span class="text-black fs-5">Raport Semester 1</span>
-                                <input type="file" class="form-control border-primary" name="rpt_smstr_1">
-                                <?php if ($validation->getError('rpt_smstr_1')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('rpt_smstr_1') ?>
-                                </div>
-                                <?php } ?>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
-                                <span class="text-black fs-5">Raport Semester 2</span>
-                                <input type="file" class="form-control border-primary" name="rpt_smstr_2">
-                                <?php if ($validation->getError('rpt_smstr_2')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('rpt_smstr_2') ?>
-                                </div>
-                                <?php } ?>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
-                                <span class="text-black fs-5">Raport Semester 3</span>
-                                <input type="file" class="form-control border-primary" name="rpt_smstr_3">
-                                <?php if ($validation->getError('rpt_smstr_3')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('rpt_smstr_3') ?>
-                                </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center w-100 gap-3">
-                            <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
-                                <span class="text-black fs-5">Raport Semester 4</span>
-                                <input type="file" class="form-control border-primary" name="rpt_smstr_4">
-                                <?php if ($validation->getError('rpt_smstr_4')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('rpt_smstr_4') ?>
-                                </div>
-                                <?php } ?>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
-                                <span class="text-black fs-5">Raport Semester 5</span>
-                                <input type="file" class="form-control border-primary" name="rpt_smstr_5">
-                                <?php if ($validation->getError('rpt_smstr_5')) { ?>
-                                <div class="alert alert-danger mt-2" role="alert">
-                                    <?= $error = $validation->getError('rpt_smstr_5') ?>
-                                </div>
-                                <?php } ?>
+                                <span class="text-black fs-5">Raport Semester 1 sampai 5</span>
+                                <input type="file" class="form-control border-primary" name="rpt_smstr_1sd5" required>
+                                <span class="text-secondary fst-italic mt-2" style="font-size: 14px;">Format file PDF. Max 20MB</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-start flex-column mb-3 w-100">
                                 <span class="text-black fs-5">Bukti Keluarga Kurang Mampu</span>
-                                <input type="file" class="form-control border-primary" name="kel_kur_mampu">
+                                <input type="file" class="form-control border-primary" name="kel_kur_mampu" required>
+                                <span class="text-secondary fst-italic mt-2" style="font-size: 14px;">Format file PDF. Max 10MB</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end align-items-center w-100">

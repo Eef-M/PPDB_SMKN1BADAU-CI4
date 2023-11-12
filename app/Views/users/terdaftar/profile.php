@@ -1,9 +1,17 @@
 <div class="">
 
-    <?php if ($profile['status'] == 0) { ?>
+    <?php if ($profile['verif'] == 0) { ?>
         <div class="alert alert-danger fs-5 text-center mb-4">Anda Belum Terverifikasi</div>
     <?php } else { ?>
         <div class="alert alert-success fs-5 text-center mb-4">Anda Sudah Terverifikasi</div>
+    <?php } ?>
+
+    <?php if ($profile['status'] == 0) { ?>
+        <div class="alert alert-warning fs-5 text-center mb-4">Dalam Proses</div>
+    <?php } elseif ($profile['status'] == 1)  { ?>
+        <div class="alert alert-info fs-5 text-center mb-4">Selamat Anda dinyatakan <b>LULUS</b></div>
+    <?php } else { ?>
+        <div class="alert alert-success fs-5 text-center mb-4">Mohon Maaf Anda dinyatakan <b>TIDAK LULUS</b></div>
     <?php } ?>
 
     <div class="row">

@@ -59,9 +59,7 @@
                 <span class="fs-4 text-danger fw-bold">Siswa tidak ditemukan!</span>
             </div>
             <?php endif; ?>
-            <?php } else {
-        null;
-      } ?>
+            <?php } else { null; } ?>
         </div>
     </div>
     <!--/ Layout Demo -->

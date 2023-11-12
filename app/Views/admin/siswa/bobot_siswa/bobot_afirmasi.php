@@ -35,7 +35,6 @@
                             <th>No</th>
                             <th>NISN</th>
                             <th>Nama</th>
-                            <th>Berkas</th>
                             <th>Persentase Calon Siswa</th>
                             <th>Aksi</th>
                         </tr>
@@ -51,9 +50,6 @@
                                     <td><?= $no; ?></td>
                                     <td><?= $row['nisn'] ?></td>
                                     <td><?= $row['nama_siswa'] ?></td>
-                                    <td>
-                                        <img src="<?= base_url('uploads/berkas_siswa/' . $row['berkas']) ?>" alt="bbt" width="100" height="auto">
-                                    </td>
                                     <td><?= $row['persentase'] ?>%</td>
                                     <td>
                                         <a href="<?= base_url('siswa-bobot/detail/' . $row['id']) ?>" class="btn btn-info">Detail</a>

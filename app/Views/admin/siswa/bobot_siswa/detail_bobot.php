@@ -144,10 +144,6 @@
                                         <i class='bx bxs-arrow-to-bottom'></i>
                                         <span>Download</span>
                                     </a>
-                                    <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/kartu_keluarga') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bx-show'></i>
-                                        <span>Lihat</span>
-                                    </a>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-start align-items-start w-100 flex-column gap-2">
@@ -157,74 +153,14 @@
                                         <i class='bx bxs-arrow-to-bottom'></i>
                                         <span>Download</span>
                                     </a>
-                                    <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/scan_nisn') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bx-show'></i>
-                                        <span>Lihat</span>
-                                    </a>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-start align-items-start w-100 flex-column gap-2">
-                                <span class="text-dark fw-bold fs-5">Raport Semester 1</span>
+                                <span class="text-dark fw-bold fs-5">Raport Semester 1 - 5</span>
                                 <div class="d-flex justify-content-start align-items-start w-100 gap-2">
-                                    <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_1') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
+                                    <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_1sd5') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                         <i class='bx bxs-arrow-to-bottom'></i>
                                         <span>Download</span>
-                                    </a>
-                                    <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_1') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bx-show'></i>
-                                        <span>Lihat</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start align-items-start w-100 flex-column gap-2">
-                                <span class="text-dark fw-bold fs-5">Raport Semester 2</span>
-                                <div class="d-flex justify-content-start align-items-start w-100 gap-2">
-                                    <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_2') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bxs-arrow-to-bottom'></i>
-                                        <span>Download</span>
-                                    </a>
-                                    <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_2') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bx-show'></i>
-                                        <span>Lihat</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start align-items-start w-100 flex-column gap-2">
-                                <span class="text-dark fw-bold fs-5">Raport Semester 3</span>
-                                <div class="d-flex justify-content-start align-items-start w-100 gap-2">
-                                    <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_3') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bxs-arrow-to-bottom'></i>
-                                        <span>Download</span>
-                                    </a>
-                                    <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_3') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bx-show'></i>
-                                        <span>Lihat</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start align-items-start w-100 flex-column gap-2 ">
-                                <span class="text-dark fw-bold fs-5">Raport Semester 4</span>
-                                <div class="d-flex justify-content-start align-items-start w-100 gap-2">
-                                    <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_4') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bxs-arrow-to-bottom'></i>
-                                        <span>Download</span>
-                                    </a>
-                                    <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_4') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bx-show'></i>
-                                        <span>Lihat</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start align-items-start w-100 flex-column gap-2">
-                                <span class="text-dark fw-bold fs-5">Raport Semester 5</span>
-                                <div class="d-flex justify-content-start align-items-start w-100 gap-2">
-                                    <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_5') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bxs-arrow-to-bottom'></i>
-                                        <span>Download</span>
-                                    </a>
-                                    <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_5') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                        <i class='bx bx-show'></i>
-                                        <span>Lihat</span>
                                     </a>
                                 </div>
                             </div>
@@ -237,10 +173,6 @@
                                             <i class='bx bxs-arrow-to-bottom'></i>
                                             <span>Download</span>
                                         </a>
-                                        <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/kel_kur_mampu') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                            <i class='bx bx-show'></i>
-                                            <span>Lihat</span>
-                                        </a>
                                     </div>
                                 </div>
                             <?php } elseif ($siswa_detail['jalur'] == 'mutasi') { ?>
@@ -251,10 +183,6 @@
                                             <i class='bx bxs-arrow-to-bottom'></i>
                                             <span>Download</span>
                                         </a>
-                                        <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/st_ortu') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                            <i class='bx bx-show'></i>
-                                            <span>Lihat</span>
-                                        </a>
                                     </div>
                                 </div>
                             <?php } elseif ($siswa_detail['jalur'] == 'prestasi') { ?>
@@ -264,10 +192,6 @@
                                         <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/sertif_prestasi') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                             <i class='bx bxs-arrow-to-bottom'></i>
                                             <span>Download</span>
-                                        </a>
-                                        <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/sertif_prestasi') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                            <i class='bx bx-show'></i>
-                                            <span>Lihat</span>
                                         </a>
                                     </div>
                                 </div>

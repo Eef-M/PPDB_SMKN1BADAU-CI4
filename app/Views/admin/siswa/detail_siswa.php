@@ -396,112 +396,37 @@
                 <div class="d-flex justify-content-center align-items-start w-100 h-100">
                     <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
                         <span class="text-dark fw-bold fs-5">Kartu Keluarga: </span>
-                        <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['kartu_keluarga']); ?>" alt="Card image cap" />
+                        <img style="width: 200px; height: auto;" src="<?= base_url('assets/pdf.svg'); ?>" alt="Card image cap" />
                         <div class="d-flex justify-content-center align-items-center w-100 gap-2">
                             <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/kartu_keluarga') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                 <i class='bx bxs-arrow-to-bottom'></i>
                                 <span>Download</span>
                             </a>
-                            <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/kartu_keluarga') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bx-show'></i>
-                                <span>Lihat</span>
-                            </a>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
-                        <span class="text-dark fw-bold fs-5">Scan Kartu NISN: </span>
-                        <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['scan_nisn']); ?>" alt="Card image cap" />
+                        <span class="text-dark fw-bold fs-5"><?= $item['scan_nisn'] ?>: </span>
+                        <img style="width: 200px; height: auto;" src="<?= base_url('assets/pdf.svg'); ?>" alt="Card image cap" />
                         <div class="d-flex justify-content-center align-items-center w-100 gap-2">
                             <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/scan_nisn') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                 <i class='bx bxs-arrow-to-bottom'></i>
                                 <span>Download</span>
                             </a>
-                            <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/scan_nisn') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bx-show'></i>
-                                <span>Lihat</span>
-                            </a>
                         </div>
                     </div>
                 </div>
                 <hr class="hr" />
                 <div class="d-flex justify-content-center align-items-start w-100 h-100">
                     <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
-                        <span class="text-dark fw-bold fs-5">Raport Semester 1: </span>
-                        <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['rpt_smstr_1']); ?>" alt="Card image cap" />
+                        <span class="text-dark fw-bold fs-5">Raport Semester 1-5: </span>
+                        <img style="width: 200px; height: auto;" src="<?= base_url('assets/pdf.svg'); ?>" alt="Card image cap" />
                         <div class="d-flex justify-content-center align-items-center w-100 gap-2">
-                            <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_1') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
+                            <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_1sd5') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                 <i class='bx bxs-arrow-to-bottom'></i>
                                 <span>Download</span>
                             </a>
-                            <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_1') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bx-show'></i>
-                                <span>Lihat</span>
-                            </a>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
-                        <span class="text-dark fw-bold fs-5">Raport Semester 2: </span>
-                        <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['rpt_smstr_2']); ?>" alt="Card image cap" />
-                        <div class="d-flex justify-content-center align-items-center w-100 gap-2">
-                            <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_2') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bxs-arrow-to-bottom'></i>
-                                <span>Download</span>
-                            </a>
-                            <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_2') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bx-show'></i>
-                                <span>Lihat</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <hr class="hr" />
-                <div class="d-flex justify-content-center align-items-start w-100 h-100">
-                    <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
-                        <span class="text-dark fw-bold fs-5">Raport Semester 3: </span>
-                        <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['rpt_smstr_3']); ?>" alt="Card image cap" />
-                        <div class="d-flex justify-content-center align-items-center w-100 gap-2">
-                            <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_3') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bxs-arrow-to-bottom'></i>
-                                <span>Download</span>
-                            </a>
-                            <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_3') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bx-show'></i>
-                                <span>Lihat</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
-                        <span class="text-dark fw-bold fs-5">Raport Semester 4: </span>
-                        <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['rpt_smstr_4']); ?>" alt="Card image cap" />
-                        <div class="d-flex justify-content-center align-items-center w-100 gap-2">
-                            <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_4') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bxs-arrow-to-bottom'></i>
-                                <span>Download</span>
-                            </a>
-                            <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_4') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bx-show'></i>
-                                <span>Lihat</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <hr class="hr" />
-                <div class="d-flex justify-content-center align-items-start w-100 h-100">
-                    <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
-                        <span class="text-dark fw-bold fs-5">Raport Semester 5: </span>
-                        <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['rpt_smstr_5']); ?>" alt="Card image cap" />
-                        <div class="d-flex justify-content-center align-items-center w-100 gap-2">
-                            <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/rpt_smstr_5') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bxs-arrow-to-bottom'></i>
-                                <span>Download</span>
-                            </a>
-                            <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/rpt_smstr_5') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                <i class='bx bx-show'></i>
-                                <span>Lihat</span>
-                            </a>
-                        </div>
-                    </div>
-
                     <?php if ($siswa_detail['jalur'] == 'zonasi') { ?>
                         <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
                             <div class="w-100 h-100"></div>
@@ -509,45 +434,33 @@
                     <?php } elseif ($siswa_detail['jalur'] == 'afirmasi') { ?>
                         <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
                             <span class="text-dark fw-bold fs-5">Bukti Keluarga Kurang Mampu: </span>
-                            <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['kel_kur_mampu']); ?>" alt="Card image cap" />
+                            <img style="width: 200px; height: auto;" src="<?= base_url('assets/pdf.svg'); ?>" alt="Card image cap" />
                             <div class="d-flex justify-content-center align-items-center w-100 gap-2">
                                 <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/kel_kur_mampu') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                     <i class='bx bxs-arrow-to-bottom'></i>
                                     <span>Download</span>
-                                </a>
-                                <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/kel_kur_mampu') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                    <i class='bx bx-show'></i>
-                                    <span>Lihat</span>
                                 </a>
                             </div>
                         </div>
                     <?php } elseif ($siswa_detail['jalur'] == 'mutasi') { ?>
                         <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
                             <span class="text-dark fw-bold fs-5">Surat Tugas Orang Tua: </span>
-                            <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['st_ortu']); ?>" alt="Card image cap" />
+                            <img style="width: 200px; height: auto;" src="<?= base_url('assets/pdf.svg'); ?>" alt="Card image cap" />
                             <div class="d-flex justify-content-center align-items-center w-100 gap-2">
                                 <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/st_ortu') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                     <i class='bx bxs-arrow-to-bottom'></i>
                                     <span>Download</span>
-                                </a>
-                                <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/st_ortu') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                    <i class='bx bx-show'></i>
-                                    <span>Lihat</span>
                                 </a>
                             </div>
                         </div>
                     <?php } elseif ($siswa_detail['jalur'] == 'prestasi') { ?>
                         <div class="d-flex justify-content-center align-items-center gap-2 flex-column w-100">
                             <span class="text-dark fw-bold fs-5">Sertifikasi Lomba/Prestasi: </span>
-                            <img style="width: 200px; height: auto;" src="<?= base_url('uploads/berkas_siswa/' . $item['sertif_prestasi']); ?>" alt="Card image cap" />
+                            <img style="width: 200px; height: auto;" src="<?= base_url('assets/pdf.svg'); ?>" alt="Card image cap" />
                             <div class="d-flex justify-content-center align-items-center w-100 gap-2">
                                 <a href="<?= base_url('siswa-berkas/download/' . $item['id'] . '/sertif_prestasi') ?>" class="btn btn-success d-flex justify-content-center align-items-center gap-2">
                                     <i class='bx bxs-arrow-to-bottom'></i>
                                     <span>Download</span>
-                                </a>
-                                <a href="<?= base_url('siswa-berkas/view/' . $item['id'] . '/sertif_prestasi') ?>" class="btn btn-info d-flex justify-content-center align-items-center gap-2">
-                                    <i class='bx bx-show'></i>
-                                    <span>Lihat</span>
                                 </a>
                             </div>
                         </div>

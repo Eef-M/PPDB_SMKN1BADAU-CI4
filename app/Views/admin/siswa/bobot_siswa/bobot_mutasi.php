@@ -40,7 +40,6 @@
                             <th>Bahasa Inggris</th>
                             <th>IPA</th>
                             <th>IPS</th>
-                            <th>Berkas</th>
                             <th class="text-nowrap">Bobot Hasil</th>
                             <th>Persentase Calon Siswa</th>
                             <th>Aksi</th>
@@ -62,9 +61,6 @@
                                     <td><?= $row['mtk']; ?></td>
                                     <td><?= $row['ipa']; ?></td>
                                     <td><?= $row['ips']; ?></td>
-                                    <td>
-                                        <img src="<?= base_url('uploads/berkas_siswa/' . $row['berkas']) ?>" alt="bbt" width="100" height="auto">
-                                    </td>
                                     <td><?= $row['bobot_hasil']; ?></td>
                                     <td><?= $row['persentase']; ?>%</td>
                                     <td class="text-nowrap">

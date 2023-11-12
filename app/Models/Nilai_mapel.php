@@ -10,6 +10,7 @@ class Nilai_mapel extends Model
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'id_siswa',
+        'nisn',
         'bindo_1',
         'bindo_2',
         'bindo_3',

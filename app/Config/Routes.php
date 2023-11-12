@@ -16,7 +16,9 @@ $routes->get('user-tambah-zonasi', 'User\UserController::zonasi');
 $routes->get('user-tambah-afirmasi', 'User\UserController::afirmasi');
 $routes->get('user-tambah-mutasi', 'User\UserController::mutasi');
 $routes->get('user-tambah-prestasi', 'User\UserController::prestasi');
-$routes->post('user-store', 'User\UserController::store');
+$routes->post('user-store-bio', 'User\UserController::store_bio');
+$routes->post('user-store-nilai', 'User\UserController::store_nilai');
+$routes->post('user-store-berkas', 'User\UserController::store_berkas');
 $routes->get('user-tambah-prestasi', 'User\UserController::prestasi');
 $routes->get('error-berkas', 'User\UserController::error_berkas');
 $routes->get('view-pdf/(:num)', 'User\UserController::view_pdf/$1');
@@ -24,6 +26,24 @@ $routes->get('lihat-pdf/(:num)', 'User\UserController::lihat_pdf/$1');
 
 $routes->get('edit-nilai/(:num)', 'User\UserController::edit_nilai/$1');
 $routes->put('update-nilai/(:num)', 'User\UserController::update_nilai/$1');
+
+// Update Berkas
+$routes->put('update-foto/(:num)', 'User\BerkasHandlerC::updateFoto/$1');
+$routes->put('update-kk/(:num)', 'User\BerkasHandlerC::updateKK/$1');
+$routes->put('update-snisn/(:num)', 'User\BerkasHandlerC::updateSNisn/$1');
+$routes->put('update-rpt/(:num)', 'User\BerkasHandlerC::updateRPT/$1');
+$routes->put('update-kkm/(:num)', 'User\BerkasHandlerC::updateKelKurMampu/$1');
+$routes->put('update-stortu/(:num)', 'User\BerkasHandlerC::updateSTOrtu/$1');
+$routes->put('update-sertif/(:num)', 'User\BerkasHandlerC::updateSertif/$1');
+
+$routes->get('user/view/(:num)/(:segment)', 'User\BerkasHandlerC::view_foto/$1/$2');
+$routes->get('unduh-pdf/(:num)/(:segment)', 'User\BerkasHandlerC::unduhPDF/$1/$2');
+
+// Informasi
+$routes->get('informasi', 'User\InfoController::index');
+$routes->get('tata-cara', 'User\InfoController::tataCara');
+$routes->get('persyaratan', 'User\InfoController::persyaratan');
+$routes->get('jadwal', 'User\InfoController::jadwal');
 
 // Grup rute untuk menu dinamis
 $routes->group('menu', function ($routes) {
@@ -49,7 +69,7 @@ $routes->put('siswa/verif/(:num)', 'Admin\SiswaController::verif/$1', ['filter' 
 $routes->put('siswa/unverif/(:num)', 'Admin\SiswaController::unverif/$1', ['filter' => 'role:admin']);
 $routes->put('siswa/tidak-lulus/(:num)', 'Admin\SiswaController::tidakLulus/$1', ['filter' => 'role:admin']);
 $routes->put('siswa/proses-lulus/(:num)', 'Admin\SiswaController::prosesLulus/$1', ['filter' => 'role:admin']);
-$routes->get('siswa-cari', 'Admin\SiswaController::cari_page', ['filter' => 'role:admin']);
+// $routes->get('siswa-cari', 'Admin\SiswaController::cari_page', ['filter' => 'role:admin']);
 $routes->post('cari', 'Admin\SiswaController::cari_siswa', ['filter' => 'role:admin']);
 $routes->get('siswa-bobot', 'Admin\SiswaController::bobot_siswa', ['filter' => 'role:admin']);
 $routes->get('siswa-bobot-zonasi', 'Admin\SiswaController::bobot_zonasi', ['filter' => 'role:admin']);
@@ -63,19 +83,24 @@ $routes->delete('nilai-sertif/hapus/(:num)', 'Admin\SiswaController::hapus_nilai
 $routes->get('siswa-berkas/download/(:num)/(:segment)', 'Admin\SiswaController::download_berkas/$1/$2', ['filter' => 'role:admin']);
 $routes->get('siswa-berkas/view/(:num)/(:segment)', 'Admin\SiswaController::view_berkas/$1/$2', ['filter' => 'role:admin']);
 
+$routes->get('siswa-berkas/view_pdf/(:num)/(:segment)', 'Admin\SiswaController::generatePdf/$1/$2', ['filter' => 'role:admin']);
+
 $routes->get('siswa-excel', 'Admin\SiswaController::exportExcel', ['filter' => 'role:admin']);
 $routes->get('zonasi-excel', 'Admin\SiswaController::export_zonasi', ['filter' => 'role:admin']);
 $routes->get('afirmasi-excel', 'Admin\SiswaController::export_afirmasi', ['filter' => 'role:admin']);
 $routes->get('mutasi-excel', 'Admin\SiswaController::export_mutasi', ['filter' => 'role:admin']);
 $routes->get('prestasi-excel', 'Admin\SiswaController::export_prestasi', ['filter' => 'role:admin']);
 
+// Penjadwalan
+$routes->get('penjadwalan', 'Admin\JadwalController::index', ['filter' => 'role:admin']);
+
 // Pengumuman
-$routes->get('admin-pengumuman', 'Admin\PengumumanController::index', ['filter' => 'role:admin']);
-$routes->get('pengumuman-tambah', 'Admin\PengumumanController::tambah_form', ['filter' => 'role:admin']);
-$routes->post('pengumuman-store', 'Admin\PengumumanController::store', ['filter' => 'role:admin']);
-$routes->get('pengumuman/edit/(:num)', 'Admin\PengumumanController::edit/$1', ['filter' => 'role:admin']);
-$routes->put('pengumuman/update/(:num)', 'Admin\PengumumanController::update/$1', ['filter' => 'role:admin']);
-$routes->delete('pengumuman/delete/(:num)', 'Admin\PengumumanController::delete/$1', ['filter' => 'role:admin']);
+// $routes->get('admin-pengumuman', 'Admin\PengumumanController::index', ['filter' => 'role:admin']);
+// $routes->get('pengumuman-tambah', 'Admin\PengumumanController::tambah_form', ['filter' => 'role:admin']);
+// $routes->post('pengumuman-store', 'Admin\PengumumanController::store', ['filter' => 'role:admin']);
+// $routes->get('pengumuman/edit/(:num)', 'Admin\PengumumanController::edit/$1', ['filter' => 'role:admin']);
+// $routes->put('pengumuman/update/(:num)', 'Admin\PengumumanController::update/$1', ['filter' => 'role:admin']);
+// $routes->delete('pengumuman/delete/(:num)', 'Admin\PengumumanController::delete/$1', ['filter' => 'role:admin']);
 
 // Navigation
 $routes->get('navigation', 'Admin\NavigationController::index', ['filter' => 'role:admin']);
@@ -83,12 +108,12 @@ $routes->post('navigation-store', 'Admin\NavigationController::store', ['filter'
 $routes->delete('navigation/delete/(:num)', 'Admin\NavigationController::delete/$1', ['filter' => 'role:admin']);
 
 // Content
-$routes->get('content', 'Admin\ContentController::index', ['filter' => 'role:admin']);
-$routes->get('content-tambah', 'Admin\ContentController::tambah_form', ['filter' => 'role:admin']);
-$routes->post('content-store', 'Admin\ContentController::store', ['filter' => 'role:admin']);
-$routes->get('content/edit/(:num)', 'Admin\ContentController::edit/$1', ['filter' => 'role:admin']);
-$routes->put('content/update/(:num)', 'Admin\ContentController::update/$1', ['filter' => 'role:admin']);
-$routes->delete('content/delete/(:num)', 'Admin\ContentController::delete/$1', ['filter' => 'role:admin']);
+// $routes->get('content', 'Admin\ContentController::index', ['filter' => 'role:admin']);
+// $routes->get('content-tambah', 'Admin\ContentController::tambah_form', ['filter' => 'role:admin']);
+// $routes->post('content-store', 'Admin\ContentController::store', ['filter' => 'role:admin']);
+// $routes->get('content/edit/(:num)', 'Admin\ContentController::edit/$1', ['filter' => 'role:admin']);
+// $routes->put('content/update/(:num)', 'Admin\ContentController::update/$1', ['filter' => 'role:admin']);
+// $routes->delete('content/delete/(:num)', 'Admin\ContentController::delete/$1', ['filter' => 'role:admin']);
 
 // Slideshow
 $routes->get('slideshow', 'Admin\SlideController::index', ['filter' => 'role:admin']);
@@ -101,6 +126,8 @@ $routes->get('footer', 'Admin\FooterController::index', ['filter' => 'role:admin
 $routes->post('footer-store', 'Admin\FooterController::store', ['filter' => 'role:admin']);
 $routes->get('footer-tambah', 'Admin\FooterController::tambah_form', ['filter' => 'role:admin']);
 $routes->delete('footer/delete/(:num)', 'Admin\FooterController::delete/$1', ['filter' => 'role:admin']);
+$routes->get('footer/edit/(:num)', 'Admin\FooterController::edit/$1', ['filter' => 'role:admin']);
+$routes->put('footer/update/(:num)', 'Admin\FooterController::update/$1', ['filter' => 'role:admin']);
 
 // User Account
 $routes->get('user-account', 'Admin\UserAccount::index', ['filter' => 'role:admin']);
