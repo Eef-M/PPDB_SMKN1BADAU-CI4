@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Nov 2023 pada 14.14
+-- Waktu pembuatan: 13 Nov 2023 pada 20.48
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -145,7 +145,8 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (223, '::1', 'eudora@mail.com', 3, '2023-11-11 04:29:58', 1),
 (224, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-11 07:01:35', 1),
 (225, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-11 11:56:20', 1),
-(226, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-12 12:45:24', 1);
+(226, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-12 12:45:24', 1),
+(227, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-13 17:55:43', 1);
 
 -- --------------------------------------------------------
 
@@ -258,13 +259,6 @@ CREATE TABLE `data_siswa` (
   `verif` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `data_siswa`
---
-
-INSERT INTO `data_siswa` (`id`, `tanggal_pendaftaran`, `nisn`, `nama_siswa`, `nik`, `id_jurusan`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `status_dlm_kel`, `alamat`, `rt`, `rw`, `kelurahan`, `kecamatan`, `kab_kota`, `provinsi`, `nohp_siswa`, `nama_ayah`, `nik_ayah`, `nama_ibu`, `nik_ibu`, `nohp_ortu`, `jalur`, `status`, `verif`) VALUES
-(42, '2023-11-10', '1234567890', 'eudora lameria', '1902051708990002', 5, 'perempuan', 'Badau', '2023-11-01', 'islam', 'anak', 'Jl. Badau', '1', '2', 'b', 'b', 'b', 'b', '18921', 'fff', '1728112', 'rrrr', '18201831', '01291812', 'mutasi', 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -301,15 +295,6 @@ CREATE TABLE `jurusan` (
   `jurusan` varchar(256) NOT NULL,
   `siswa` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `jurusan`
---
-
-INSERT INTO `jurusan` (`id`, `gambar`, `guru`, `jurusan`, `siswa`) VALUES
-(2, '1698301907_68e386d0af463b485f0c.png', 'Erina', 'MULTIMEDIA', '0'),
-(4, '1698302472_1e42ac757c1ef81cd766.jpg', 'Wukong', 'AKUNTANSI', '0'),
-(5, '1698302501_e0b051365ceda1711016.jpg', 'Esme', 'PEMASARAN', '1');
 
 -- --------------------------------------------------------
 
@@ -389,13 +374,6 @@ CREATE TABLE `nilai_mapel` (
   `bobot_hasil` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `nilai_mapel`
---
-
-INSERT INTO `nilai_mapel` (`id`, `id_siswa`, `nisn`, `bindo_1`, `bindo_2`, `bindo_3`, `bindo_4`, `bindo_5`, `bing_1`, `bing_2`, `bing_3`, `bing_4`, `bing_5`, `mtk_1`, `mtk_2`, `mtk_3`, `mtk_4`, `mtk_5`, `ipa_1`, `ipa_2`, `ipa_3`, `ipa_4`, `ipa_5`, `ips_1`, `ips_2`, `ips_3`, `ips_4`, `ips_5`, `bobot_bindo`, `bobot_bing`, `bobot_mtk`, `bobot_ipa`, `bobot_ips`, `bobot_hasil`) VALUES
-(35, 42, '1234567890', 90.1, 56, 45.7, 78.6, 90, 75.5, 89, 89, 90, 10, 90, 43.2, 89.5, 56, 55, 67, 89, 90, 90, 100, 100, 89, 100, 67, 55, 72.08, 70.7, 66.74, 87.2, 82.2, 75.784);
-
 -- --------------------------------------------------------
 
 --
@@ -439,6 +417,7 @@ INSERT INTO `pengumuman` (`id`, `foto`, `judul`, `isi`, `created_at`) VALUES
 CREATE TABLE `penjadwalan` (
   `id` int(11) NOT NULL,
   `kegiatan` varchar(225) NOT NULL,
+  `lokasi` enum('ONLINE','OFFLINE') NOT NULL,
   `tanggal_mulai` date NOT NULL,
   `tanggal_selesai` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -479,13 +458,6 @@ CREATE TABLE `tahun_ajaran` (
   `is_active` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `tahun_ajaran`
---
-
-INSERT INTO `tahun_ajaran` (`id`, `tahun_ajaran`, `keterangan`, `tanggal_mulai`, `tanggal_selesai`, `is_active`) VALUES
-(14, '2023/2024', 'coba', '2023-11-06', '2023-11-11', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -504,13 +476,6 @@ CREATE TABLE `upload_berkas` (
   `st_ortu` varchar(225) NOT NULL,
   `sertif_prestasi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `upload_berkas`
---
-
-INSERT INTO `upload_berkas` (`id`, `id_siswa`, `nisn`, `foto`, `kartu_keluarga`, `scan_nisn`, `rpt_smstr_1sd5`, `kel_kur_mampu`, `st_ortu`, `sertif_prestasi`) VALUES
-(32, 42, '1234567890', '1699633332_3ead65d4a573b9e448fd.jpg', '1699633145_ee2deb4f18a70931341e.pdf', '1699633835_cc5bb45211317639e745.pdf', '1699634441_84e238a188b6c3d22116.pdf', '-', '1699634241_c224723e5417d8fab529.pdf', '-');
 
 -- --------------------------------------------------------
 
@@ -722,7 +687,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT untuk tabel `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
 
 --
 -- AUTO_INCREMENT untuk tabel `auth_permissions`
@@ -812,7 +777,7 @@ ALTER TABLE `slideshow`
 -- AUTO_INCREMENT untuk tabel `tahun_ajaran`
 --
 ALTER TABLE `tahun_ajaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `upload_berkas`

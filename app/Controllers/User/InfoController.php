@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Data_siswa;
 use App\Models\Footer;
 use App\Models\Navigation;
+use App\Models\Penjadwalan;
 use App\Models\Slideshow;
 use App\Models\Tahun_ajaran;
 
@@ -52,6 +53,12 @@ class InfoController extends BaseController
 
     public function jadwal()
     {
+        $tahunAjaran = new Tahun_ajaran();
+        $penjadwalan = new Penjadwalan();
+
+        $data['TA'] = $tahunAjaran->findAll();
+        $data['jadwal'] = $penjadwalan->findAll();
+
         $slideshow = new Slideshow();
         $footer = new Footer();
         $data['footer'] = $footer->findAll();

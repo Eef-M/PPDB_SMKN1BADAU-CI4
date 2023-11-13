@@ -93,6 +93,11 @@ $routes->get('prestasi-excel', 'Admin\SiswaController::export_prestasi', ['filte
 
 // Penjadwalan
 $routes->get('penjadwalan', 'Admin\JadwalController::index', ['filter' => 'role:admin']);
+$routes->get('penjadwalan-tambah', 'Admin\JadwalController::tambah_form', ['filter' => 'role:admin']);
+$routes->post('penjadwalan-store', 'Admin\JadwalController::store', ['filter' => 'role:admin']);
+$routes->get('penjadwalan-hapus', 'Admin\JadwalController::delete', ['filter' => 'role:admin']);
+$routes->get('penjadwalan/edit/(:num)', 'Admin\JadwalController::edit/$1', ['filter' => 'role:admin']);
+$routes->put('penjadwalan/update/(:num)', 'Admin\JadwalController::update/$1', ['filter' => 'role:admin']);
 
 // Pengumuman
 // $routes->get('admin-pengumuman', 'Admin\PengumumanController::index', ['filter' => 'role:admin']);
