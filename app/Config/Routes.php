@@ -41,9 +41,9 @@ $routes->get('unduh-pdf/(:num)/(:segment)', 'User\BerkasHandlerC::unduhPDF/$1/$2
 
 // Informasi
 $routes->get('informasi', 'User\InfoController::index');
-$routes->get('tata-cara', 'User\InfoController::tataCara');
-$routes->get('persyaratan', 'User\InfoController::persyaratan');
-$routes->get('jadwal', 'User\InfoController::jadwal');
+$routes->get('user-tata-cara', 'User\InfoController::tataCara');
+$routes->get('user-persyaratan', 'User\InfoController::persyaratan');
+$routes->get('user-jadwal', 'User\InfoController::jadwal');
 
 // Grup rute untuk menu dinamis
 $routes->group('menu', function ($routes) {

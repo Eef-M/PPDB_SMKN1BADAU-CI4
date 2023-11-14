@@ -75,10 +75,10 @@
     <div class="row posts-entry">
         <div class="col-lg-12">
             <div class="d-flex justify-content-center align-items-center w-100 gap-3 flex-wrap">
-                <a href="<?= base_url('pengumuman') ?>" class="btn btn-primary">INFORMASI PPDB</a>
-                <a href="<?= base_url('tata-cara') ?>" class="btn btn-warning">TATA CARA PPDB</a>
-                <a href="<?= base_url('persyaratan') ?>" class="btn btn-info">PERSYARATAN PPDB</a>
-                <a href="<?= base_url('jadwal') ?>" class="btn btn-secondary">JADWAL PPDB</a>
+                <a href="<?= url_to('pengumuman') ?>" class="btn btn-primary">PENGUMUMAN HASIL PPDB</a>
+                <a href="<?= url_to('tata-cara') ?>" class="btn btn-warning">TATA CARA PPDB</a>
+                <a href="<?= url_to('persyaratan') ?>" class="btn btn-info">PERSYARATAN PPDB</a>
+                <a href="<?= url_to('lp-jadwal') ?>" class="btn btn-secondary">JADWAL PPDB</a>
             </div>
         </div>
     </div>

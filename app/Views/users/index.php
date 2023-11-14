@@ -75,9 +75,9 @@
         <div class="col-lg-12">
             <div class="d-flex justify-content-center align-items-center w-100 gap-3 flex-wrap">
                 <a href="<?= base_url('user-pengumuman') ?>" class="btn btn-primary">PENGUMUMAN HASIL PPDB</a>
-                <a href="<?= base_url('tata-cara') ?>" class="btn btn-warning">TATA CARA PPDB</a>
-                <a href="<?= base_url('persyaratan') ?>" class="btn btn-info">PERSYARATAN PPDB</a>
-                <a href="<?= base_url('jadwal') ?>" class="btn btn-secondary">JADWAL PPDB</a>
+                <a href="<?= base_url('user-tata-cara') ?>" class="btn btn-warning">TATA CARA PPDB</a>
+                <a href="<?= base_url('user-persyaratan') ?>" class="btn btn-info">PERSYARATAN PPDB</a>
+                <a href="<?= base_url('user-jadwal') ?>" class="btn btn-secondary">JADWAL PPDB</a>
             </div>
         </div>
     </div>
