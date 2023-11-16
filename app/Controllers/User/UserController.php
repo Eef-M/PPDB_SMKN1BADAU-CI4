@@ -122,6 +122,58 @@ class UserController extends BaseController
         }
     }
 
+    public function edit_profile($id)
+    {
+        $dataSiswa = new Data_siswa();
+        $data_jurusan = new Jurusan();
+        $data['profile'] = $dataSiswa->find($id);
+        $data['jurusan'] = $data_jurusan->findAll();
+
+        $data['tahun_ajaran'] = $this->kondisi_TA();
+        $data['navigation'] = $this->menu_handle();
+        $data['navbar_active'] = 'ppdb';
+
+        return view('users/terdaftar/edit_profile', $data);
+    }
+
+    public function update_profile($id)
+    {
+        $data_siswa = new Data_siswa();
+
+        $data = [
+            'tanggal_pendaftaran' => $this->request->getPost('tanggal_pendaftaran'),
+            'nisn' => $this->request->getPost('nisn'),
+            'nama_siswa' => $this->request->getPost('nama_siswa'),
+            'nik' => $this->request->getPost('nik'),
+            'id_jurusan' => $this->request->getPost('id_jurusan'),
+            'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
+            'tempat_lahir' => $this->request->getPost('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
+            'agama' => $this->request->getPost('agama'),
+            'status_dlm_kel' => $this->request->getPost('status_dlm_kel'),
+            'alamat' => $this->request->getPost('alamat'),
+            'rt' => $this->request->getPost('rt'),
+            'rw' => $this->request->getPost('rw'),
+            'kelurahan' => $this->request->getPost('kelurahan'),
+            'kecamatan' => $this->request->getPost('kecamatan'),
+            'kab_kota' => $this->request->getPost('kab_kota'),
+            'provinsi' => $this->request->getPost('provinsi'),
+            'nohp_siswa' => $this->request->getPost('nohp_siswa'),
+            'nama_ayah' => $this->request->getPost('nama_ayah'),
+            'nik_ayah' => $this->request->getPost('nik_ayah'),
+            'nama_ibu' => $this->request->getPost('nama_ibu'),
+            'nik_ibu' => $this->request->getPost('nik_ibu'),
+            'nohp_ortu' => $this->request->getPost('nohp_ortu'),
+            'jalur' => $this->request->getPost('jalur'),
+            'status' => $this->request->getPost('status'),
+            'verif' => $this->request->getPost('verif'),
+        ];
+
+        $data_siswa->update($id, $data);
+
+        return redirect()->to(base_url('user-ppdb'))->with('status', '<div class="alert alert-success alert-dismissible mx-4" role="alert">Profile Berhasil di Update<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+    }
+
     public function edit_nilai($id)
     {
         $dataSiswa = new Data_siswa();

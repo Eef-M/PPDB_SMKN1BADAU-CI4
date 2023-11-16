@@ -27,6 +27,9 @@ $routes->get('lihat-pdf/(:num)', 'User\UserController::lihat_pdf/$1');
 $routes->get('edit-nilai/(:num)', 'User\UserController::edit_nilai/$1');
 $routes->put('update-nilai/(:num)', 'User\UserController::update_nilai/$1');
 
+$routes->get('edit-profile/(:num)', 'User\UserController::edit_profile/$1');
+$routes->put('update-profile/(:num)', 'User\UserController::update_profile/$1');
+
 // Update Berkas
 $routes->put('update-foto/(:num)', 'User\BerkasHandlerC::updateFoto/$1');
 $routes->put('update-kk/(:num)', 'User\BerkasHandlerC::updateKK/$1');

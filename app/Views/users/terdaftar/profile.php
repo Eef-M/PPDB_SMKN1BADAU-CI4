@@ -8,7 +8,7 @@
 
     <?php if ($profile['status'] == 0) { ?>
         <div class="alert alert-warning fs-5 text-center mb-4">Dalam Proses</div>
-    <?php } elseif ($profile['status'] == 1)  { ?>
+    <?php } elseif ($profile['status'] == 1) { ?>
         <div class="alert alert-info fs-5 text-center mb-4">Selamat Anda dinyatakan <b>LULUS</b></div>
     <?php } else { ?>
         <div class="alert alert-success fs-5 text-center mb-4">Mohon Maaf Anda dinyatakan <b>TIDAK LULUS</b></div>
@@ -21,6 +21,7 @@
             <?php endforeach; ?>
         </div>
         <div class="col-md-8">
+            <a href="<?= base_url('edit-profile/' . $profile['id']) ?>" class="btn btn-primary mb-3">EDIT DATA</a>
             <div class="card p-2">
                 <div class="row">
                     <div class="col-md-5">
