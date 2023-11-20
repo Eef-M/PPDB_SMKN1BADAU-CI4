@@ -61,9 +61,9 @@
                                         <option selected>Jurusan Belum Tersedia</option>
                                     <?php } else { ?>
                                         <option selected>-- Pilih Jurusan --</option>
-                                    <?php foreach($jurusan as $row) : ?>
-                                        <option value="<?= $row['id'] ?>"><?= $row['jurusan'] ?></option>
-                                    <?php endforeach; 
+                                        <?php foreach ($jurusan as $row) : ?>
+                                            <option value="<?= $row['id'] ?>"><?= $row['jurusan'] ?></option>
+                                    <?php endforeach;
                                     }
                                     ?>
                                 </select>
@@ -323,7 +323,7 @@
                                 <tr>
                                     <td>Bahasa Indonesia</td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="bindo_1" style="width: 80px; height: 50px;" id="bindo_1" >
+                                        <input type="text" class="form-control border-info" name="bindo_1" style="width: 80px; height: 50px;" id="bindo_1">
                                         <?php if ($validation->getError('bindo_1')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Indonesia Semester 1 harus di isi/harus berupa angka
@@ -331,7 +331,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="bindo_2" style="width: 80px; height: 50px;" id="bindo_2" >
+                                        <input type="text" class="form-control border-info" name="bindo_2" style="width: 80px; height: 50px;" id="bindo_2">
                                         <?php if ($validation->getError('bindo_2')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Indonesia Semester 2 harus di isi/harus berupa angka
@@ -339,7 +339,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text"class="form-control border-info" name="bindo_3" style="width: 80px; height: 50px;" id="bindo_3" >
+                                        <input type="text" class="form-control border-info" name="bindo_3" style="width: 80px; height: 50px;" id="bindo_3">
                                         <?php if ($validation->getError('bindo_3')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Indonesia Semester 3 harus di isi/harus berupa angka
@@ -347,7 +347,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text"class="form-control border-info" name="bindo_4" style="width: 80px; height: 50px;" id="bindo_4" >
+                                        <input type="text" class="form-control border-info" name="bindo_4" style="width: 80px; height: 50px;" id="bindo_4">
                                         <?php if ($validation->getError('bindo_4')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Indonesia Semester 4 harus di isi/harus berupa angka
@@ -355,7 +355,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text"class="form-control border-info" name="bindo_5" style="width: 80px; height: 50px;" id="bindo_5" >
+                                        <input type="text" class="form-control border-info" name="bindo_5" style="width: 80px; height: 50px;" id="bindo_5">
                                         <?php if ($validation->getError('bindo_5')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Indonesia Semester 5 harus di isi/harus berupa angka
@@ -366,7 +366,7 @@
                                 <tr>
                                     <td>Bahasa Inggris</td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="bing_1" style="width: 80px; height: 50px;" id="bing_1" >
+                                        <input type="text" class="form-control border-info" name="bing_1" style="width: 80px; height: 50px;" id="bing_1">
                                         <?php if ($validation->getError('bing_1')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Inggris Semester 1 harus di isi/harus berupa angka
@@ -374,7 +374,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="bing_2" style="width: 80px; height: 50px;" id="bing_2" >
+                                        <input type="text" class="form-control border-info" name="bing_2" style="width: 80px; height: 50px;" id="bing_2">
                                         <?php if ($validation->getError('bing_2')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Inggris Semester 2 harus di isi/harus berupa angka
@@ -382,7 +382,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="bing_3" style="width: 80px; height: 50px;" id="bing_3" >
+                                        <input type="text" class="form-control border-info" name="bing_3" style="width: 80px; height: 50px;" id="bing_3">
                                         <?php if ($validation->getError('bing_3')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Inggris Semester 3 harus di isi/harus berupa angka
@@ -390,7 +390,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="bing_4" style="width: 80px; height: 50px;" id="bing_4" >
+                                        <input type="text" class="form-control border-info" name="bing_4" style="width: 80px; height: 50px;" id="bing_4">
                                         <?php if ($validation->getError('bing_4')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Inggris Semester 4 harus di isi/harus berupa angka
@@ -398,7 +398,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="bing_5" style="width: 80px; height: 50px;" id="bing_5" >
+                                        <input type="text" class="form-control border-info" name="bing_5" style="width: 80px; height: 50px;" id="bing_5">
                                         <?php if ($validation->getError('bing_5')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Bahasa Inggris Semester 5 harus di isi/harus berupa angka
@@ -409,7 +409,7 @@
                                 <tr>
                                     <td>Matematika</td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="mtk_1" style="width: 80px; height: 50px;" id="mtk_1" >
+                                        <input type="text" class="form-control border-info" name="mtk_1" style="width: 80px; height: 50px;" id="mtk_1">
                                         <?php if ($validation->getError('mtk_1')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Matematika Semester 1 harus di isi/harus berupa angka
@@ -417,7 +417,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="mtk_2" style="width: 80px; height: 50px;" id="mtk_2" >
+                                        <input type="text" class="form-control border-info" name="mtk_2" style="width: 80px; height: 50px;" id="mtk_2">
                                         <?php if ($validation->getError('mtk_2')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Matematika Semester 2 harus di isi/harus berupa angka
@@ -425,7 +425,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="mtk_3" style="width: 80px; height: 50px;" id="mtk_3" >
+                                        <input type="text" class="form-control border-info" name="mtk_3" style="width: 80px; height: 50px;" id="mtk_3">
                                         <?php if ($validation->getError('mtk_3')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Matematika Semester 3 harus di isi/harus berupa angka
@@ -433,7 +433,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="mtk_4" style="width: 80px; height: 50px;" id="mtk_4" >
+                                        <input type="text" class="form-control border-info" name="mtk_4" style="width: 80px; height: 50px;" id="mtk_4">
                                         <?php if ($validation->getError('mtk_4')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Matematika Semester 4 harus di isi/harus berupa angka
@@ -441,7 +441,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="mtk_5" style="width: 80px; height: 50px;" id="mtk_5" >
+                                        <input type="text" class="form-control border-info" name="mtk_5" style="width: 80px; height: 50px;" id="mtk_5">
                                         <?php if ($validation->getError('mtk_5')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 Matematika Semester 5 harus di isi/harus berupa angka
@@ -452,7 +452,7 @@
                                 <tr>
                                     <td>IPA</td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ipa_1" style="width: 80px; height: 50px;" id="ipa_1" >
+                                        <input type="text" class="form-control border-info" name="ipa_1" style="width: 80px; height: 50px;" id="ipa_1">
                                         <?php if ($validation->getError('ipa_1')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPA Semester 1 harus di isi/harus berupa angka
@@ -460,7 +460,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ipa_2" style="width: 80px; height: 50px;" id="ipa_2" >
+                                        <input type="text" class="form-control border-info" name="ipa_2" style="width: 80px; height: 50px;" id="ipa_2">
                                         <?php if ($validation->getError('ipa_2')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPA Semester 2 harus di isi/harus berupa angka
@@ -468,7 +468,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ipa_3" style="width: 80px; height: 50px;" id="ipa_3" >
+                                        <input type="text" class="form-control border-info" name="ipa_3" style="width: 80px; height: 50px;" id="ipa_3">
                                         <?php if ($validation->getError('ipa_3')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPA Semester 3 harus di isi/harus berupa angka
@@ -476,7 +476,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ipa_4" style="width: 80px; height: 50px;" id="ipa_4" >
+                                        <input type="text" class="form-control border-info" name="ipa_4" style="width: 80px; height: 50px;" id="ipa_4">
                                         <?php if ($validation->getError('ipa_4')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPA Semester 4 harus di isi/harus berupa angka
@@ -484,7 +484,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ipa_5" style="width: 80px; height: 50px;" id="ipa_5" >
+                                        <input type="text" class="form-control border-info" name="ipa_5" style="width: 80px; height: 50px;" id="ipa_5">
                                         <?php if ($validation->getError('ipa_5')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPA Semester 5 harus di isi/harus berupa angka
@@ -495,7 +495,7 @@
                                 <tr>
                                     <td>IPS</td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ips_1" style="width: 80px; height: 50px;" id="ips_1" >
+                                        <input type="text" class="form-control border-info" name="ips_1" style="width: 80px; height: 50px;" id="ips_1">
                                         <?php if ($validation->getError('ips_1')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPS Semester 1 harus di isi/harus berupa angka
@@ -503,7 +503,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ips_2" style="width: 80px; height: 50px;" id="ips_2" >
+                                        <input type="text" class="form-control border-info" name="ips_2" style="width: 80px; height: 50px;" id="ips_2">
                                         <?php if ($validation->getError('ips_2')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPS Semester 2 harus di isi/harus berupa angka
@@ -511,7 +511,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ips_3" style="width: 80px; height: 50px;" id="ips_3" >
+                                        <input type="text" class="form-control border-info" name="ips_3" style="width: 80px; height: 50px;" id="ips_3">
                                         <?php if ($validation->getError('ips_3')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPS Semester 3 harus di isi/harus berupa angka
@@ -519,7 +519,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ips_4" style="width: 80px; height: 50px;" id="ips_4" >
+                                        <input type="text" class="form-control border-info" name="ips_4" style="width: 80px; height: 50px;" id="ips_4">
                                         <?php if ($validation->getError('ips_4')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPS Semester 4 harus di isi/harus berupa angka
@@ -527,7 +527,7 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
-                                        <input type="text" class="form-control border-info" name="ips_5" style="width: 80px; height: 50px;" id="ips_5" >
+                                        <input type="text" class="form-control border-info" name="ips_5" style="width: 80px; height: 50px;" id="ips_5">
                                         <?php if ($validation->getError('ips_5')) { ?>
                                             <div class="alert alert-danger mt-2" role="alert">
                                                 IPS Semester 5 harus di isi/harus berupa angka
@@ -566,9 +566,15 @@
                                 <span class="text-secondary fst-italic mt-2" style="font-size: 14px;">Format file PDF. Max 20MB</span>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end align-items-center w-100">
-                            <button type="submit" class="btn btn-info">Simpan Data</button>
-                        </div>
+                        <?php if (empty($jurusan)) : ?>
+                            <div class="d-flex justify-content-center align-items-center w-100">
+                                <span class="text-danger fst-italic fs-5">*Mohon untuk mengisi data jurusan agar bisa menyimpan data</span>
+                            </div>
+                        <?php else : ?>
+                            <div class="d-flex justify-content-end align-items-center w-100">
+                                <button type="submit" class="btn btn-info">Simpan Data</button>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <!-- End Upload Berkas -->
                 </form>

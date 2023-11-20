@@ -27,8 +27,12 @@
                     <div class="col-md-5">
                         1. Tanggal Pendaftaran
                     </div>
+                    <?php
+                    $tanggalPendaftaran = $profile['tanggal_pendaftaran'];
+                    $formatTanggal = date('d F Y', strtotime($tanggalPendaftaran));
+                    ?>
                     <div class="col-md-7 fw-bold">
-                        <?= $profile['tanggal_pendaftaran'] ?>
+                        <?= $formatTanggal ?>
                     </div>
                 </div>
                 <hr>

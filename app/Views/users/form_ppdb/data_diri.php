@@ -51,15 +51,15 @@
             <div class="form-group">
                 <label for="id_jurusan" class="form-label">Jurusan:</label>
                 <select id="id_jurusan" name="id_jurusan" class="form-control border-primary" required>
-                <?php if (empty($jurusan)) { ?>
-                    <option selected>Jurusan Belum Tersedia</option>
-                <?php } else { ?>
-                    <option selected>-- Pilih Jurusan --</option>
-                <?php foreach($jurusan as $row) : ?>
-                    <option value="<?= $row['id'] ?>"><?= $row['jurusan'] ?></option>
-                <?php endforeach; 
-                }
-                ?>
+                    <?php if (empty($jurusan)) { ?>
+                        <option selected>Jurusan Belum Tersedia</option>
+                    <?php } else { ?>
+                        <option selected>-- Pilih Jurusan --</option>
+                        <?php foreach ($jurusan as $row) : ?>
+                            <option value="<?= $row['id'] ?>"><?= $row['jurusan'] ?></option>
+                    <?php endforeach;
+                    }
+                    ?>
                 </select>
                 <!-- ERROR -->
                 <?php if ($validation->getError('id_jurusan')) { ?>
@@ -297,6 +297,18 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Selanjutnya</button>
+    <?php if (empty($jurusan)) : ?>
+        <span class="text-danger fst-italic fs-5">*Tidak bisa melanjutkan pengisian dikarenakan jurusan belum tersedia, mohon untuk menunggu</span>
+    <?php else : ?>
+        <?php
+        $userRoles = implode(', ', user()->getRoles());
+        $isAdmin = strcasecmp($userRoles, 'admin') === 0;
+        ?>
+        <?php if ($isAdmin) : ?>
+            <span class="text-danger fst-italic fs-5">*Admin Tidak bisa mengisi data melalui form user. Silahkan isi data pada halaman Admin</span>
+        <?php else : ?>
+            <button type="submit" class="btn btn-primary mt-2">Selanjutnya</button>
+        <?php endif; ?>
+    <?php endif; ?>
 </div>
 <!-- DATA DIRI SISWA END -->

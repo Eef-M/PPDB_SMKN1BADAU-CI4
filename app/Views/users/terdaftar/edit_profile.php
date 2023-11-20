@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label for="tanggal_pendaftaran" class="form-label">Tanggal
                                     Pendaftaran:</label>
-                                <input type="text" readonly value="<?= $profile['tanggal_pendaftaran']; ?>" class="form-control border-primary">
+                                <input type="date" readonly name="tanggal_pendaftaran" value="<?= $profile['tanggal_pendaftaran']; ?>" class="form-control border-primary">
                             </div>
                         </div>
                         <div class="col-md-4">

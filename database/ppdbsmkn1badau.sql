@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Nov 2023 pada 20.48
+-- Waktu pembuatan: 20 Nov 2023 pada 14.06
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -82,8 +82,7 @@ CREATE TABLE `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 1),
-(2, 3);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -146,7 +145,34 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (224, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-11 07:01:35', 1),
 (225, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-11 11:56:20', 1),
 (226, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-12 12:45:24', 1),
-(227, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-13 17:55:43', 1);
+(227, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-13 17:55:43', 1),
+(228, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-14 16:02:52', 1),
+(229, '::1', 'eudora@mail.com', 3, '2023-11-14 16:06:12', 1),
+(230, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-14 16:06:30', 1),
+(231, '::1', '1234567890', NULL, '2023-11-14 16:07:03', 0),
+(232, '::1', '1234567890', NULL, '2023-11-16 12:28:47', 0),
+(233, '::1', 'eudora@email.com', 5, '2023-11-16 12:29:00', 1),
+(234, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-16 12:29:06', 1),
+(235, '::1', 'eudora@email.com', 5, '2023-11-16 12:32:31', 1),
+(236, '::1', '1234567890', NULL, '2023-11-16 14:13:59', 0),
+(237, '::1', 'eudora@email.com', 5, '2023-11-16 14:14:11', 1),
+(238, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-16 14:18:06', 1),
+(239, '::1', 'eudora@email.com', 5, '2023-11-16 14:19:21', 1),
+(240, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-16 14:28:55', 1),
+(241, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 11:59:14', 1),
+(242, '::1', 'eudora@gmail.com', 6, '2023-11-20 12:34:16', 1),
+(243, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 12:34:59', 1),
+(244, '::1', 'eudora@gmail.com', 6, '2023-11-20 12:36:15', 1),
+(245, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 12:42:41', 1),
+(246, '::1', 'eudora@gmail.com', 6, '2023-11-20 12:44:38', 1),
+(247, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:00:19', 1),
+(248, '::1', 'eudora@gmail.com', 6, '2023-11-20 13:01:11', 1),
+(249, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:01:44', 1),
+(250, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:02:38', 1),
+(251, '::1', 'eudora@gmail.com', 6, '2023-11-20 13:02:57', 1),
+(252, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:03:29', 1),
+(253, '::1', '1234567890', NULL, '2023-11-20 13:04:00', 0),
+(254, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:04:21', 1);
 
 -- --------------------------------------------------------
 
@@ -508,8 +534,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `nisn`, `user_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'ppdbsmknbadau@gmail.com', 'ppdb_admin', '12345', 'default.jpg', '$2y$10$oGdRX21OACjjopc20LEhIOPRqSu.GY1mF3QYtP579XWycZrzZ/Ynu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-09-11 12:06:29', '2023-09-11 12:06:29', NULL),
-(3, 'eudora@mail.com', 'eudora lameria', '1234567890', 'default.jpg', '$2y$10$Mhs58x7.QY4mdebYCELVauQUN5Sja0eBUixH1bkOxSC6gUPRoZUPC', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-10-21 05:15:20', '2023-10-21 05:15:20', NULL);
+(1, 'ppdbsmknbadau@gmail.com', 'ppdb_admin', '12345', 'default.jpg', '$2y$10$oGdRX21OACjjopc20LEhIOPRqSu.GY1mF3QYtP579XWycZrzZ/Ynu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-09-11 12:06:29', '2023-09-11 12:06:29', NULL);
 
 --
 -- Indexes for dumped tables
@@ -687,7 +712,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT untuk tabel `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
 
 --
 -- AUTO_INCREMENT untuk tabel `auth_permissions`
@@ -717,7 +742,7 @@ ALTER TABLE `content`
 -- AUTO_INCREMENT untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT untuk tabel `footer`
@@ -729,7 +754,7 @@ ALTER TABLE `footer`
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -747,7 +772,7 @@ ALTER TABLE `navigation_menu`
 -- AUTO_INCREMENT untuk tabel `nilai_mapel`
 --
 ALTER TABLE `nilai_mapel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT untuk tabel `nilai_sertifikat`
@@ -777,19 +802,19 @@ ALTER TABLE `slideshow`
 -- AUTO_INCREMENT untuk tabel `tahun_ajaran`
 --
 ALTER TABLE `tahun_ajaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `upload_berkas`
 --
 ALTER TABLE `upload_berkas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
