@@ -69,7 +69,7 @@
                 <div data-i18n="Basic">Pengumuman</div>
             </a>
         </li> -->
-        <li class="menu-item <?= (isset($sidebar_active) && ($sidebar_active == 'navigation' || $sidebar_active == 'content' || $sidebar_active == 'slideshow' || $sidebar_active == 'user_account' || $sidebar_active == 'footer')) ? 'active open' : '' ?>">
+        <li class="menu-item <?= (isset($sidebar_active) && ($sidebar_active == 'navigation' || $sidebar_active == 'psyttc' || $sidebar_active == 'slideshow' || $sidebar_active == 'user_account' || $sidebar_active == 'footer')) ? 'active open' : '' ?>">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-cog"></i>
                 <div data-i18n="Basic">Pengaturan</div>
@@ -80,11 +80,11 @@
                         <div data-i18n="Account">Navigation</div>
                     </a>
                 </li>
-                <!-- <li class="menu-item <?= (isset($sidebar_active) && $sidebar_active == 'content') ? 'active' : '' ?>">
-                    <a href="<?= base_url('content') ?>" class="menu-link">
-                        <div data-i18n="Notifications">Content</div>
+                <li class="menu-item <?= (isset($sidebar_active) && $sidebar_active == 'psyttc') ? 'active' : '' ?>">
+                    <a href="<?= base_url('psyttc') ?>" class="menu-link">
+                        <div data-i18n="Notifications">Persyaratan & Tata Cara</div>
                     </a>
-                </li> -->
+                </li>
                 <li class="menu-item <?= (isset($sidebar_active) && $sidebar_active == 'slideshow') ? 'active' : '' ?>">
                     <a href="<?= base_url('slideshow') ?>" class="menu-link">
                         <div data-i18n="Notifications">Slideshow</div>

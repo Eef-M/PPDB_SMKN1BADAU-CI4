@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Nov 2023 pada 14.06
+-- Waktu pembuatan: 20 Nov 2023 pada 18.52
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -172,7 +172,8 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (251, '::1', 'eudora@gmail.com', 6, '2023-11-20 13:02:57', 1),
 (252, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:03:29', 1),
 (253, '::1', '1234567890', NULL, '2023-11-20 13:04:00', 0),
-(254, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:04:21', 1);
+(254, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:04:21', 1),
+(255, '::1', 'ppdbsmknbadau@gmail.com', 1, '2023-11-20 13:54:06', 1);
 
 -- --------------------------------------------------------
 
@@ -451,6 +452,24 @@ CREATE TABLE `penjadwalan` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `persyaratan`
+--
+
+CREATE TABLE `persyaratan` (
+  `id` int(11) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `persyaratan`
+--
+
+INSERT INTO `persyaratan` (`id`, `deskripsi`) VALUES
+(1, '<p></p><p><ol><li style=\"text-align: justify; \">Calon peserta didik baru akses laman Situs PPDB Online.</li><li style=\"text-align: justify; \">Calon peserta didik baru melakukan Registrasi Akun secara online. Setelah Registrasi Calon Peserta\r\ndidik baru di harap Login untuk melakukan pendaftaran online.</li><li style=\"text-align: justify; \">Calon peserta didik baru memilih salah satu jalur pendaftaran. Zonasi, Afirmasi, Mutasi dan Prestasi.</li><li style=\"text-align: justify; \">Calon peserta didik baru mengisi form biodata diri.</li><li style=\"text-align: justify; \">Calon peserta didik baru mengisi form nilai dari mata pelajaran Bahasa Indonesia, Bahasa Inggris,\r\nMatematika, IPA, dan IPS. semester 1 sampai 5. </li><li style=\"text-align: justify; \">Calon peserta didik baru mengupload berkas foto, Kartu Keluarga, Scan Kartu NSIN.</li><li style=\"text-align: justify; \">Calon peserta didik baru menunggu verifikasi dan pernyataan kelulusan dari ADMIN.</li><li style=\"text-align: justify; \">Calon peserta didik bisa melihat pernyataan kelulusan pada menu pengumuman.</li></ol></p>');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `slideshow`
 --
 
@@ -483,6 +502,24 @@ CREATE TABLE `tahun_ajaran` (
   `tanggal_selesai` date NOT NULL,
   `is_active` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tata_cara`
+--
+
+CREATE TABLE `tata_cara` (
+  `id` int(11) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tata_cara`
+--
+
+INSERT INTO `tata_cara` (`id`, `deskripsi`) VALUES
+(1, '<p></p><ol><li>Calon&nbsp;siswa mendaftar melalui laman PPDB http://ppdbsmkn1badau.unaux.com/ jika calon pendaftar tidak memiliki smarthphone atau jaringan internet, pendaftaran dapat di lakukan dengan cara langsung datang ke SMK Negeri 1 Badau.</li><li>Setelah mendaftar calon siswa mengupload berkas lalu mencetak bukti pendaftaran, pernyataan lalu diserahkan bersama berkas lainnya saat daftar ulang. Untuk jalur zonasi, penentuan lokasi tempat tinggal berdasarkan zona yang telah ditetapkan.</li><li>Panitia SMK Negeri 1 Badau bertugas:<ul><li>Membuat data rekapitulasi pendaftar dari aplikasi web PPDB.</li><li>Mendowload berkas (KK, Kartu NISN, dan Surat Keterangan Prestasi, Piagam).</li><li>Melakukan verifikasi dan validasi.</li><li>Melakukan proses seleksi (perangkingan) sesuai jalur penerimaan.</li><li>Mengumumkan&nbsp;nominasi sementara calon peserta didik baru yang telah dilakukan verifikasi pada setiap hari kerja melalui Papan Pengumuman Sekolah atau melalui laman pengumuman PPDB Online SMK Negeri 1 Badau.</li></ul></li><li>Seleksi&nbsp;calon peserta didik baru melalui jalur Zonasi, Mutasi dan Prestasi dengan melampirkan Rata-rata Nilai Raport semester 1-5 pada mata pelajaran Bahasa Indonesia, Bahasa Inggris, Matematika, IPA dan IPS serta Sertifikat/Piagam Kejuaraan Akademik maupun prestasi Non-Akademik (jika ada) yang di akumulasikan dengan ketentuan lain.</li><li>Seleksi&nbsp;calon peserta didik baru melalui jalur Mutasi Orang Tua/Wali dengan memenuhi ketentuan sebagai berikut:<ul><li>Mutasi domisili orang tua/wali peserta didik.</li><li>Dibuktikan dengan surat pindah tugas orang tua/wali calon peserta didik.</li></ul></li></ol><p></p>');
 
 -- --------------------------------------------------------
 
@@ -665,6 +702,12 @@ ALTER TABLE `penjadwalan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `persyaratan`
+--
+ALTER TABLE `persyaratan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `slideshow`
 --
 ALTER TABLE `slideshow`
@@ -674,6 +717,12 @@ ALTER TABLE `slideshow`
 -- Indeks untuk tabel `tahun_ajaran`
 --
 ALTER TABLE `tahun_ajaran`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tata_cara`
+--
+ALTER TABLE `tata_cara`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -712,7 +761,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT untuk tabel `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=256;
 
 --
 -- AUTO_INCREMENT untuk tabel `auth_permissions`
@@ -793,6 +842,12 @@ ALTER TABLE `penjadwalan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `persyaratan`
+--
+ALTER TABLE `persyaratan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `slideshow`
 --
 ALTER TABLE `slideshow`
@@ -803,6 +858,12 @@ ALTER TABLE `slideshow`
 --
 ALTER TABLE `tahun_ajaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT untuk tabel `tata_cara`
+--
+ALTER TABLE `tata_cara`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `upload_berkas`

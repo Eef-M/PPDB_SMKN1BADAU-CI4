@@ -102,6 +102,19 @@ $routes->get('penjadwalan-hapus', 'Admin\JadwalController::delete', ['filter' =>
 $routes->get('penjadwalan/edit/(:num)', 'Admin\JadwalController::edit/$1', ['filter' => 'role:admin']);
 $routes->put('penjadwalan/update/(:num)', 'Admin\JadwalController::update/$1', ['filter' => 'role:admin']);
 
+// Persyaratan dan Tata Cara
+$routes->get('psyttc', 'Admin\PsytTtcController::index', ['filter' => 'role:admin']);
+$routes->get('persyaratan-tambah', 'Admin\PsytTtcController::formPersyaratan', ['filter' => 'role:admin']);
+$routes->get('tata_cara-tambah', 'Admin\PsytTtcController::formTataCara', ['filter' => 'role:admin']);
+$routes->post('persyaratan-store', 'Admin\PsytTtcController::storePersyaratan', ['filter' => 'role:admin']);
+$routes->post('tata_cara-store', 'Admin\PsytTtcController::storeTataCara', ['filter' => 'role:admin']);
+$routes->get('persyaratan-hapus', 'Admin\PsytTtcController::HapusPersyaratan', ['filter' => 'role:admin']);
+$routes->get('tata_cara-hapus', 'Admin\PsytTtcController::HapusTataCara', ['filter' => 'role:admin']);
+$routes->get('persyaratan/edit/(:num)', 'Admin\PsytTtcController::editPersyaratan/$1', ['filter' => 'role:admin']);
+$routes->get('tata_cara/edit/(:num)', 'Admin\PsytTtcController::editTataCara/$1', ['filter' => 'role:admin']);
+$routes->put('persyaratan/update/(:num)', 'Admin\PsytTtcController::updatePersyaratan/$1', ['filter' => 'role:admin']);
+$routes->put('tata_cara/update/(:num)', 'Admin\PsytTtcController::updateTataCara/$1', ['filter' => 'role:admin']);
+
 // Pengumuman
 // $routes->get('admin-pengumuman', 'Admin\PengumumanController::index', ['filter' => 'role:admin']);
 // $routes->get('pengumuman-tambah', 'Admin\PengumumanController::tambah_form', ['filter' => 'role:admin']);

@@ -7,8 +7,10 @@ use App\Models\Data_siswa;
 use App\Models\Footer;
 use App\Models\Navigation;
 use App\Models\Penjadwalan;
+use App\Models\Persyaratan;
 use App\Models\Slideshow;
 use App\Models\Tahun_ajaran;
+use App\Models\Tata_cara;
 
 class InfoController extends BaseController
 {
@@ -27,10 +29,13 @@ class InfoController extends BaseController
 
     public function tataCara()
     {
+        $tataCaraModel = new Tata_cara();
         $slideshow = new Slideshow();
         $footer = new Footer();
         $data['footer'] = $footer->findAll();
         $data['slideshow'] = $slideshow->findAll();
+
+        $data['tata_cara'] = $tataCaraModel->findAll();
 
         $data['tahun_ajaran'] = $this->kondisi_TA();
         $data['navigation'] = $this->menu_handle();
@@ -40,10 +45,13 @@ class InfoController extends BaseController
 
     public function persyaratan()
     {
+        $persyaratanModel = new Persyaratan();
         $slideshow = new Slideshow();
         $footer = new Footer();
         $data['footer'] = $footer->findAll();
         $data['slideshow'] = $slideshow->findAll();
+
+        $data['persyaratan'] = $persyaratanModel->findAll();
 
         $data['tahun_ajaran'] = $this->kondisi_TA();
         $data['navigation'] = $this->menu_handle();
